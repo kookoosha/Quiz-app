@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { AppBar } from '@react-native-material/core';
 import { EventRegister } from 'react-native-event-listeners';
 import themeContext from './src/ThemeContext/themeContext';
-import theme from './src/ThemeContext/Theme';
-import LevelsScreen from './src/screens/LevelsScreen';
+// import { Provider } from 'react-redux';
 import MainScreen from './src/components/MainScreen/MainScreen';
-
-const Stack = createNativeStackNavigator();
+import theme from './src/ThemeContext/Theme';
+// import store from './src/redux/store';
 
 export default function App() {
   const [mode, setMode] = useState(false);
@@ -27,14 +23,10 @@ export default function App() {
 
   return (
     <themeContext.Provider value={mode === true ? theme.dark : theme.light}>
-      <NavigationContainer>
-        <AppBar title="JSlearner" centerTitle color="primary" />
-        <Stack.Navigator>
-          <Stack.Screen name="Main" component={MainScreen} />
-          <Stack.Screen name="Lev" component={LevelsScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      {/* <Provider store={store}> */}
+      <MainScreen />
+      {/* </Provider> */}
     </themeContext.Provider>
+
   );
 }
-
