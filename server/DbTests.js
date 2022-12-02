@@ -38,6 +38,7 @@ export async function questionWithAnsvers(question) {
   const res = await Answer.findAll({
     where: { question_id: question },
   });
+
   //   const res = await Question.findOne({
   //     where: { id: question },
   //     include: Answer,
