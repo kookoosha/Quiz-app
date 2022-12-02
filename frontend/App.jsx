@@ -3,9 +3,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AppBar } from '@react-native-material/core';
 import { EventRegister } from 'react-native-event-listeners';
-import LevelsScreen from './screens/LevelsScreen';
 import themeContext from './src/ThemeContext/themeContext';
 import theme from './src/ThemeContext/Theme';
+import LevelsScreen from './src/screens/LevelsScreen';
+import MainScreen from './src/components/MainScreen/MainScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,9 +30,11 @@ export default function App() {
       <NavigationContainer>
         <AppBar title="JSlearner" centerTitle color="primary" />
         <Stack.Navigator>
-          <Stack.Screen name="Выбери свой уроваень" component={LevelsScreen} />
+          <Stack.Screen name="Main" component={MainScreen} />
+          <Stack.Screen name="Lev" component={LevelsScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </themeContext.Provider>
   );
 }
+
