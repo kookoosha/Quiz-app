@@ -10,9 +10,17 @@ module.exports = {
       },
       user_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: 'Users', // tableName
+          key: 'id',
+        },
       },
       question_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: 'Questions', // tableName
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,

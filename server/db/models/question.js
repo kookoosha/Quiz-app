@@ -18,6 +18,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Question.init({
     title: DataTypes.STRING,
+    img: DataTypes.TEXT,
+    code: DataTypes.TEXT,
     level_id: DataTypes.INTEGER,
   }, {
     sequelize,

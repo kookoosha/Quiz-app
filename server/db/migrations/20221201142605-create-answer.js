@@ -13,6 +13,10 @@ module.exports = {
       },
       question_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: 'Questions', // tableName
+          key: 'id',
+        },
       },
       isCorrect: {
         type: Sequelize.BOOLEAN,

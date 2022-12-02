@@ -11,8 +11,18 @@ module.exports = {
       title: {
         type: Sequelize.STRING,
       },
+      img: {
+        type: Sequelize.TEXT,
+      },
+      code: {
+        type: Sequelize.TEXT,
+      },
       level_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: 'Levels', // tableName
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,
