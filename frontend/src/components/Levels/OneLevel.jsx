@@ -1,13 +1,14 @@
 import React from 'react';
 import { Button } from '@react-native-material/core';
-// import axios from 'axios';
-// import { FlatList, View } from 'react-native';
+import { View } from 'react-native';
 
 export function OneLevel() {
   return (
-    <OneLevel>
-      <Button title="Button" />
-    </OneLevel>
+    <View>
+      <Button style={{ marginBottom: 10 }} title="Junior" />
+      <Button style={{ marginBottom: 10 }} title="Middle" />
+      <Button style={{ marginBottom: 10 }} title="Senior" />
+    </View>
   );
 }
 

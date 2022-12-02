@@ -1,33 +1,38 @@
 import React from 'react';
 // import { Button, ListItem } from '@react-native-material/core';
 import axios from 'axios';
-import { FlatList, View } from 'react-native';
+import { View } from 'react-native';
+import { Button } from '@react-native-material/core';
 import { OneLevel } from './OneLevel';
 
 function Levels() {
-  const [levels, setLevels] = React.useState();
-  const fetchLevels = () => {
-    axios('https://rickandmortyapi.com/api/character')
-      .then((res) => setLevels(res.data.results))
-      .catch(console.log);
-  };
+  // const [levels, setLevels] = React.useState();
+  // React.useEffect(() => {
+  //   const options = {
+  //     method: 'GET',
+  //     url: 'https://bloomberg-market-and-financial-news.p.rapidapi.com/stories/list',
+  //     params: { template: 'CURRENCY', id: 'usdjpy' },
+  //     headers: {
+  //       'X-RapidAPI-Key': 'bec932e113mshb88dcf77aba1f74p149b5ajsnf9258526c098',
+  //       'X-RapidAPI-Host': 'bloomberg-market-and-financial-news.p.rapidapi.com',
+  //     },
+  //   };
 
-  React.useEffect(fetchLevels, [levels]);
+  //   axios.request(options)
+  //     .then((response) => {
+  //       setLevels(response.data.stories);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, [levels]);
+  // React.useEffect(fetchLevels, [levels]);
 
   return (
-    <View>
-      <FlatList
-        data={levels}
-        renderItem={(level) => (
-          <OneLevel title={level.item.title} />
-        )}
-      />
+    <View style={{ margin: 30, flexDirection: 'column' }}>
+      <OneLevel />
     </View>
   );
-
-  // return (
-  //   <ListItem leading={<Button title="Button" />} />
-  // );
 }
 
 export default Levels;
