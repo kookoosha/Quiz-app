@@ -1,11 +1,14 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { AppBar } from '@react-native-material/core';
-import LevelsScreen from './screens/LevelsScreen';
+import { View } from 'react-native';
+import {
+  AppBar, IconButton, Pressable, Text,
+} from '@react-native-material/core';
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
+import Icon from '@expo/vector-icons/MaterialCommunityIcons';
 
 const Stack = createNativeStackNavigator();
-
+function App() {
+  const insets = useSafeAreaInsets();
   return (
     <NavigationContainer>
       <AppBar title="JSlearner" centerTitle color="primary" />
