@@ -20,4 +20,15 @@ app.use(express.urlencoded({ extended: true }));
 // app.use('/user', userRouter);
 app.use('/Lev', levelsRouter);
 
+const { Level } = require('./db/models');
+
+async function testBD() {
+  const res = await Level.findAll();
+  console.log(res, 'rreeesss');
+  return res;
+}
+
+console.log(testBD());
+console.log('Hi');
+
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));
