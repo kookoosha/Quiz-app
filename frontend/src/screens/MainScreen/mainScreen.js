@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   card: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
     // backgroundColor: '#FFFAFA',
   },
 
@@ -18,6 +18,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '300',
     marginVertical: 20,
+  },
+
+  logo: {
+    height: 100,
+    width: 100,
   },
 });
 
