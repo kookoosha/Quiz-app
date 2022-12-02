@@ -1,20 +1,17 @@
 import React from 'react';
-// import axios from 'axios';
 import { View } from 'react-native';
+import { useSelector } from 'react-redux';
 import { OneLevel } from './OneLevel';
 
 function Levels() {
+  const levels = useSelector((store) => store.levels);
   // const [levels, setLevels] = React.useState();
+
   // React.useEffect(() => {
-  //   const options = {
-  //     method: 'GET',
-  //     url: 'https://bloomberg-market-and-financial-news.p.rapidapi.com/stories/list',
-  //     params: { template: 'CURRENCY', id: 'usdjpy' },
-  //     headers: {
-  //       'X-RapidAPI-Key': 'bec932e113mshb88dcf77aba1f74p149b5ajsnf9258526c098',
-  //       'X-RapidAPI-Host': 'bloomberg-market-and-financial-news.p.rapidapi.com',
-  //     },
-  //   };
+  //   axios.get()
+  //     .then((res) => setLevels(res.data))
+  //     .catch((error) => console.log(error));
+  // }, [levels]);
 
   //   axios.request(options)
   //     .then((response) => {
@@ -28,7 +25,13 @@ function Levels() {
 
   return (
     <View style={{ margin: 30, flexDirection: 'column' }}>
-      <OneLevel />
+      {levels?.map((el) => (
+        <OneLevel
+          key={el.id}
+          id={el.id}
+          level={el}
+        />
+      ))}
     </View>
   );
 }

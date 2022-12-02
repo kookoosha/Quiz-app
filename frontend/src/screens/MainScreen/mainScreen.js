@@ -19,12 +19,6 @@ const styles = StyleSheet.create({
     fontWeight: '300',
     marginVertical: 20,
   },
-
-  btnText: {
-    marginBottom: 20,
-    fontSize: 20,
-    textAlign: 'center',
-  },
 });
 
 export default styles;

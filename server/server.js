@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-
+const { levelsRouter } = require('./routes/levelsRouter');
 // const userRouter = require('./routes/userRouter');
 
 require('dotenv').config();
@@ -18,5 +18,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // app.use('/user', userRouter);
+app.use('/Lev', levelsRouter);
 
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));
