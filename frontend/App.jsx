@@ -6,6 +6,7 @@ import LevelsScreen from './screens/LevelsScreen';
 
 const Stack = createNativeStackNavigator();
 
+function App() {
   return (
     <NavigationContainer>
       <AppBar title="JSlearner" centerTitle color="primary" />
@@ -14,15 +15,15 @@ const Stack = createNativeStackNavigator();
       </Stack.Navigator>
     </NavigationContainer>
   );
-
-
-function AppProvider() {
-  return (
-    <SafeAreaProvider>
-      <App />
-
-    </SafeAreaProvider>
-  );
 }
 
-export default AppProvider;
+// function AppProvider() {
+//   return (
+//     <SafeAreaProvider>
+//       <App />
+
+//     </SafeAreaProvider>
+//   );
+// }
+
+export default App;
