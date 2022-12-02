@@ -18,9 +18,6 @@ export default function MainScreen() {
 
     <View style={[styles.card, { backgroundColor: theme.backgroundColor }]}>
       <StatusBar />
-      {/* <Text style={styles.title}>
-        JS Learner
-      </Text> */}
       <Text style={styles.mainText}>Just Do It!</Text>
       <View style={styles.mainPageBtns}>
         <Button style={{ marginBottom: 10 }} title="Регистрация" onPress={() => navigation.navigate('')} />
