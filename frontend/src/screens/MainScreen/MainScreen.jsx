@@ -1,4 +1,4 @@
-// import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import React, { useContext, useState } from 'react';
 import {
   StatusBar, Text, View, TouchableOpacity,
@@ -11,7 +11,7 @@ import styles from './mainScreen';
 export default function MainScreen() {
   const theme = useContext(themeContext);
   const [mode, setMode] = useState(false);
-  // const navigation = useNavigation();
+  const navigation = useNavigation();
 
   return (
 
