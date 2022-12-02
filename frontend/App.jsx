@@ -5,8 +5,8 @@ import { AppBar } from '@react-native-material/core';
 import { EventRegister } from 'react-native-event-listeners';
 import themeContext from './src/ThemeContext/themeContext';
 import theme from './src/ThemeContext/Theme';
-import LevelsScreen from './src/screens/LevelsScreen/LevelsScreen';
 import MainScreen from './src/screens/MainScreen/MainScreen';
+import LevelsScreen from './src/screens/LevelsScreen/LevelsScreen';
 
 const Stack = createNativeStackNavigator();
 
