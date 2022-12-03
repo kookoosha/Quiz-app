@@ -4,11 +4,17 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AppBar } from '@react-native-material/core';
 import { EventRegister } from 'react-native-event-listeners';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Provider } from 'react-redux';
+import axios from 'axios';
 import themeContext from './src/ThemeContext/themeContext';
 import theme from './src/ThemeContext/Theme';
 import LevelsScreen from './src/screens/LevelsScreen/LevelsScreen';
 import Question from './src/components/Game/Question';
 import MainScreen from './src/screens/MainScreen/MainScreen';
+import store from './redux/store';
+
+axios.defaults.baseURL = 'http://localhost:3001';
+axios.defaults.withCredentials = true;
 
 const Stack = createNativeStackNavigator();
 
@@ -51,9 +57,12 @@ function App() {
 
 function AppProvider() {
   return (
-    <SafeAreaProvider>
-      <App />
-    </SafeAreaProvider>
+    <Provider store={store}>
+
+      <SafeAreaProvider>
+        <App />
+      </SafeAreaProvider>
+    </Provider>
   );
 }
 

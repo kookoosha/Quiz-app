@@ -1,6 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
 import { useSelector } from 'react-redux';
+import { Button } from '@react-native-material/core';
+import { useNavigation } from '@react-navigation/native';
 import { OneLevel } from './OneLevel';
 
 function Levels() {
@@ -22,6 +24,7 @@ function Levels() {
   //     });
   // }, [levels]);
   // React.useEffect(fetchLevels, [levels]);
+  const navigation = useNavigation();
 
   return (
     <View style={{ margin: 30, flexDirection: 'column' }}>
@@ -32,6 +35,8 @@ function Levels() {
           level={el}
         />
       ))}
+      <Button style={{ marginBottom: 10, backgroundColor: 'gray' }} title="jun+" onPress={() => navigation.navigate('Que')} />
+
     </View>
   );
 }

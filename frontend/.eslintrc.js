@@ -26,5 +26,6 @@ module.exports = {
     'no-unused-vars': 0,
     'no-console': 0,
     'react/jsx-no-constructed-context-values': 0,
+    'import/no-unresolved': 0,
   },
 };
