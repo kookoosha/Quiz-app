@@ -23,6 +23,7 @@ export default function MainScreen() {
       <View style={styles.mainPageBtns}>
         <Button style={{ marginBottom: 30 }} title="Регистрация" onPress={() => navigation.navigate('')} />
         <Button style={{ marginBottom: 30 }} title="Авторизация" onPress={() => navigation.navigate('')} />
+        <Button style={{ marginBottom: 30 }} title="Профиль" onPress={() => navigation.navigate('Profile')} />
         <Button style={{ marginBottom: 30 }} title="Новый тест" onPress={() => navigation.navigate('Level')} />
         <Button style={{ marginBottom: 30 }} title="Учебник JS" onPress={() => navigation.navigate('Textbook')} />
       </View>
@@ -37,6 +38,5 @@ export default function MainScreen() {
       </View>
       <Text style={[styles.btnText, { color: theme.color }]}>Темная тема</Text>
     </View>
-
   );
 }
