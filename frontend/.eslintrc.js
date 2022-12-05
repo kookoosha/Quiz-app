@@ -20,6 +20,8 @@ module.exports = {
     'default-param-last': 0,
     'react/jsx-filename-extension': 0,
     'import/prefer-default-export': 0,
+    'global-require': 0,
+    'react/style-prop-object': 0,
     'react/prop-types': 0,
     'no-restricted-exports': 0,
     'react/jsx-props-no-spreading': 0,

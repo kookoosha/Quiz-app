@@ -1,14 +1,15 @@
 const theme = {
   light: {
     theme: 'light',
-    backgroundColor: '#483D8B',
-    color: 'white',
+    backgroundColor: '#FFFAFA',
+    color: 'black',
 
   },
+
   dark: {
     theme: 'dark',
-    backgroundColor: '#E0FFFF',
-    color: 'black',
+    backgroundColor: '#363642',
+    color: 'white',
 
   },
 };

@@ -12,6 +12,7 @@ import LevelsScreen from './src/screens/LevelsScreen/LevelsScreen';
 import Question from './src/components/Game/Question';
 import MainScreen from './src/screens/MainScreen/MainScreen';
 import store from './redux/store';
+import TextBookScreen from './src/screens/TextBook/TextBookScreen';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
@@ -41,14 +42,15 @@ function App() {
           style={{
             paddingTop: insets.top,
           }}
-          title="JSlearner"
+          title="JS Learner"
           centerTitle
           color="primary"
         />
         <Stack.Navigator>
           <Stack.Screen name="Main" component={MainScreen} />
-          <Stack.Screen name="Lev" component={LevelsScreen} />
+          <Stack.Screen name="Level" component={LevelsScreen} />
           <Stack.Screen name="Que" component={Question} />
+          <Stack.Screen name="Textbook" component={TextBookScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </themeContext.Provider>
@@ -58,7 +60,6 @@ function App() {
 function AppProvider() {
   return (
     <Provider store={store}>
-
       <SafeAreaProvider>
         <App />
       </SafeAreaProvider>

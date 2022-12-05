@@ -19,6 +19,20 @@ const styles = StyleSheet.create({
     fontWeight: '300',
     marginVertical: 20,
   },
+
+  logo: {
+    height: 100,
+    width: 100,
+  },
+
+  levelsBtns: {
+    width: 200,
+  },
+
+  themePic: {
+    height: 30,
+    width: 30,
+  },
 });
 
 export default styles;
