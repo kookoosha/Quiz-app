@@ -3,18 +3,14 @@ const { Level } = require('../db/models');
 
 const router = express.Router();
 
-router.route('/Lev').get(async (req, res) => {
+router.route('/').get(async (req, res) => {
   try {
     const AllLevels = await Level.findAll();
+    console.log(AllLevels);
     return res.json(AllLevels);
   } catch (error) {
     return console.log(error);
   }
 });
-
-// export async function allLeavels() {
-//   const res = await Level.findAll();
-//   return toJson(res);
-// }
 
 module.exports = router;

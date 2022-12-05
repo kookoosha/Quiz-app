@@ -40,9 +40,10 @@ function App() {
       <NavigationContainer>
         <AppBar
           style={{
-            paddingTop: insets.top,
+            paddingTop: insets.top, backgroundColor: '#FFD700',
           }}
           title="JS Learner"
+          tintColor="black"
           centerTitle
           color="primary"
         />
