@@ -2,8 +2,6 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 
-// const userRouter = require('./routes/userRouter');
-
 require('dotenv').config();
 
 const app = express();
@@ -14,9 +12,16 @@ app.use(cors({
   origin: true,
 }));
 app.use(morgan('dev'));
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-// app.use('/user', userRouter);
+app.get('/Que', (req, res) => {
+  const a = {
+    quoteText: 'Dont compromise yourself. You are all youve got.',
+    quoteAuthor: 'Janis Joplin',
+  };
+  console.log(res);
+  res.json(a);
+});
 
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));

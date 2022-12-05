@@ -20,6 +20,7 @@ export default function MainScreen() {
       <StatusBar />
       <Image style={[styles.logo]} source={require('./logo.png')} />
       <Text style={[styles.mainText, { color: theme.color }]}>JuSt do it!</Text>
+      <Text style={styles.mainText}>Just Do It!</Text>
       <View style={styles.mainPageBtns}>
         <Button style={{ marginBottom: 30 }} title="Регистрация" onPress={() => navigation.navigate('')} />
         <Button style={{ marginBottom: 30 }} title="Авторизация" onPress={() => navigation.navigate('')} />
