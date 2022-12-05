@@ -1,12 +1,9 @@
 import { Button } from '@react-native-material/core';
 import React from 'react';
-
-import { View } from 'react-native';
-import styles from '../../screens/MainScreen/mainScreen';
 import { View } from 'react-native';
 import { useSelector } from 'react-redux';
-import { Button } from '@react-native-material/core';
 import { useNavigation } from '@react-navigation/native';
+import styles from '../../screens/MainScreen/mainScreen';
 import { OneLevel } from './OneLevel';
 
 function Levels() {
@@ -37,7 +34,7 @@ function Levels() {
     //   <Button style={{ marginBottom: 30 }} title="Middle" />
     //   <Button style={{ marginBottom: 30 }} title="Senior" />
     //   </View>
-    <View style={{ margin: 30, flexDirection: 'column' }}>
+    <>
       {levels?.map((el) => (
         <OneLevel
           key={el.id}
@@ -45,8 +42,8 @@ function Levels() {
           level={el}
         />
       ))}
-      <Button style={{ marginBottom: 10, backgroundColor: 'gray' }} title="jun+" onPress={() => navigation.navigate('Que')} />
-    </View>
+      <Button style={{ marginBottom: 30, width: 200 }} title="Junior" onPress={() => navigation.navigate('Que')} />
+    </>
 
   );
 }
