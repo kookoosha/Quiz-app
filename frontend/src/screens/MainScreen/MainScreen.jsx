@@ -21,8 +21,8 @@ export default function MainScreen() {
       <Image style={[styles.logo]} source={require('./logo.png')} />
       <Text style={[styles.mainText, { color: theme.color }]}>JuSt do it!</Text>
       <View style={styles.mainPageBtns}>
-        <Button style={{ marginBottom: 30 }} title="Регистрация" onPress={() => navigation.navigate('')} />
-        <Button style={{ marginBottom: 30 }} title="Авторизация" onPress={() => navigation.navigate('')} />
+        {/* <Button style={{ marginBottom: 30 }} title="Регистрация" onPress={() => navigation.navigate('')} />
+        <Button style={{ marginBottom: 30 }} title="Авторизация" onPress={() => navigation.navigate('')} /> */}
         <Button style={{ marginBottom: 30 }} title="Профиль" onPress={() => navigation.navigate('Profile')} />
         <Button style={{ marginBottom: 30 }} title="Новый тест" onPress={() => navigation.navigate('Level')} />
         <Button style={{ marginBottom: 30 }} title="Учебник JS" onPress={() => navigation.navigate('Textbook')} />

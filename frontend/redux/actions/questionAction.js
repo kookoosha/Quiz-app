@@ -1,7 +1,8 @@
 import axios from 'axios';
-import { SET_QUESTION } from '../types';
+import { SET_QUESTION, ADD_QUESTION } from '../types';
 
 export const setLevels = (newQuestion) => ({ type: SET_QUESTION, payload: newQuestion });
+export const addQuestion = (addQuest) => ({ type: ADD_QUESTION, payload: addQuest });
 
 export const getQuestions = () => (dispatch) => {
   axios.get('http://192.168.2.246:3001/que')
