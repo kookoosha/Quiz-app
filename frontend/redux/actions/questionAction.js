@@ -1,29 +1,14 @@
 import axios from 'axios';
-import { SET_QUESTION } from '../types';
+import { EMPTY_QUESTION, SET_QUESTION, ADD_QUESTION } from '../types';
 
-export const setLevels = (newQuestion) => ({ type: SET_QUESTION, payload: newQuestion });
+export const setQuestion = (newQuestion) => ({ type: SET_QUESTION, payload: newQuestion });
+export const emptyQuestion = () => ({ type: EMPTY_QUESTION });
+export const addQuestion = (addQuest) => ({ type: ADD_QUESTION, payload: addQuest });
 
-export const getQuestions = () => (dispatch) => {
-  axios.get('/Que')
+export const getQuestions = (id) => (dispatch) => {
+  axios.get(`http://192.168.2.246:3001/que/${id}`)
     .then((res) => {
-      console.log('+++', res.data);
+      dispatch(setQuestion(res.data));
     })
-
     .catch((error) => console.log('My Error! ->', error));
 };
-
-// const headers = {
-//     'Content-Type': 'application/json',
-//   };
-//   const url = 'http://localhost:3001/Que/';
-
-//   // axios.get(url, { headers });
-
-//   export const getQuestions = () => () => {
-//     axios.get(url, { headers })
-//       .then((res) => {
-//         console.log('+++', res.data);
-//       })
-
-//       .catch((error) => console.log('My Error! ->', error));
-//   };

@@ -8,11 +8,13 @@ import { Provider } from 'react-redux';
 import axios from 'axios';
 import themeContext from './src/ThemeContext/themeContext';
 import theme from './src/ThemeContext/Theme';
-import LevelsScreen from './src/screens/LevelsScreen/LevelsScreen';
 import Question from './src/components/Game/Question';
-import MainScreen from './src/screens/MainScreen/MainScreen';
 import store from './redux/store';
 import TextBookScreen from './src/screens/TextBookScreen/TextBookScreen';
+import MainScreen from './src/screens/MainScreen/MainScreen';
+import LevelsScreen from './src/screens/LevelsScreen/LevelsScreen';
+import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
+import AddQuestionScreen from './src/screens/AddQuestionScreen/AddQuestionScreen';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
@@ -40,9 +42,10 @@ function App() {
       <NavigationContainer>
         <AppBar
           style={{
-            paddingTop: insets.top,
+            paddingTop: insets.top, backgroundColor: '#FFD700',
           }}
           title="JS Learner"
+          tintColor="black"
           centerTitle
           color="primary"
         />
@@ -51,6 +54,8 @@ function App() {
           <Stack.Screen name="Level" component={LevelsScreen} />
           <Stack.Screen name="Que" component={Question} />
           <Stack.Screen name="Textbook" component={TextBookScreen} />
+          <Stack.Screen name="Profile" component={ProfileScreen} />
+          <Stack.Screen name="AddQuestion" component={AddQuestionScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </themeContext.Provider>
