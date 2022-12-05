@@ -12,7 +12,7 @@ import LevelsScreen from './src/screens/LevelsScreen/LevelsScreen';
 import Question from './src/components/Game/Question';
 import MainScreen from './src/screens/MainScreen/MainScreen';
 import store from './redux/store';
-import TextBookScreen from './src/screens/TextBook/TextBookScreen';
+import TextBookScreen from './src/screens/TextBookScreen/TextBookScreen';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
