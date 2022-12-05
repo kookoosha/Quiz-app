@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Text, View } from 'react-native';
-import { SelectList } from 'react-native-dropdown-select-list';
+// import { SelectList } from 'react-native-dropdown-select-list';
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
 import themeContext from '../../ThemeContext/themeContext';
 import styles from '../MainScreen/mainScreen';
