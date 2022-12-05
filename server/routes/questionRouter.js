@@ -3,12 +3,17 @@ const { Question } = require('../db/models');
 
 const questionRouter = express.Router();
 
-questionRouter.route('/')
+questionRouter.route('/:id')
+// отдаю на фронт все вопросы из БД
+
   .get(async (req, res) => {
+    const { id } = req.params;
     try {
-      const AllQuestion = await Question.findAll();
-      console.log('0000000000');
-      return res.json(AllQuestion);
+      console.log(id);
+      const result = await Question.findAll({
+        where: { level_id: id },
+      });
+      return res.json(result);
     } catch (error) {
       return console.log(error);
     }
