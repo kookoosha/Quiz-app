@@ -4,7 +4,7 @@ import { SET_QUESTION } from '../types';
 export const setLevels = (newQuestion) => ({ type: SET_QUESTION, payload: newQuestion });
 
 export const getQuestions = () => (dispatch) => {
-  axios.get('/Que')
+  axios.get('http://192.168.2.246:3001/que')
     .then((res) => {
       console.log('+++', res.data);
     })
