@@ -1,9 +1,8 @@
+import { Button } from '@react-native-material/core';
 import React from 'react';
-// import { Button, ListItem } from '@react-native-material/core';
-// import axios from 'axios';
+
 import { View } from 'react-native';
-// import { Button } from '@react-native-material/core';
-import { OneLevel } from './OneLevel';
+import styles from '../../screens/MainScreen/mainScreen';
 
 function Levels() {
   // const [levels, setLevels] = React.useState();
@@ -29,9 +28,13 @@ function Levels() {
   // React.useEffect(fetchLevels, [levels]);
 
   return (
-    <View style={{ margin: 30, flexDirection: 'column' }}>
-      <OneLevel />
+
+    <View style={styles.levelsBtns}>
+      <Button style={{ marginBottom: 30 }} title="Junior" />
+      <Button style={{ marginBottom: 30 }} title="Middle" />
+      <Button style={{ marginBottom: 30 }} title="Senior" />
     </View>
+
   );
 }
 

@@ -8,6 +8,7 @@ import themeContext from './src/ThemeContext/themeContext';
 import theme from './src/ThemeContext/Theme';
 import LevelsScreen from './src/screens/LevelsScreen/LevelsScreen';
 import MainScreen from './src/screens/MainScreen/MainScreen';
+import TextBookScreen from './src/screens/TextBook/TextBookScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,7 +41,8 @@ function App() {
         />
         <Stack.Navigator>
           <Stack.Screen name="Main" component={MainScreen} />
-          <Stack.Screen name="Lev" component={LevelsScreen} />
+          <Stack.Screen name="Level" component={LevelsScreen} />
+          <Stack.Screen name="Textbook" component={TextBookScreen} />
           {/* <Stack.Screen name="Que" component={Question} /> */}
         </Stack.Navigator>
       </NavigationContainer>

@@ -18,12 +18,13 @@ export default function MainScreen() {
 
     <View style={[styles.card, { backgroundColor: theme.backgroundColor }]}>
       <StatusBar />
-      <Image style={styles.logo} source={require('./logo.png')} />
-      <Text style={styles.mainText}>JuSt do it!</Text>
+      <Image style={[styles.logo]} source={require('./logo.png')} />
+      <Text style={[styles.mainText, { color: theme.color }]}>JuSt do it!</Text>
       <View style={styles.mainPageBtns}>
-        <Button style={{ marginBottom: 20 }} title="Регистрация" onPress={() => navigation.navigate('')} />
-        <Button style={{ marginBottom: 20 }} title="Авторизация" onPress={() => navigation.navigate('')} />
-        <Button style={{ marginBottom: 20 }} title="Старт" onPress={() => navigation.navigate('Lev')} />
+        <Button style={{ marginBottom: 30 }} title="Регистрация" onPress={() => navigation.navigate('')} />
+        <Button style={{ marginBottom: 30 }} title="Авторизация" onPress={() => navigation.navigate('')} />
+        <Button style={{ marginBottom: 30 }} title="Новый тест" onPress={() => navigation.navigate('Level')} />
+        <Button style={{ marginBottom: 30 }} title="Учебник JS" onPress={() => navigation.navigate('Textbook')} />
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
         <Switch

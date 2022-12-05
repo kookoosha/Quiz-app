@@ -8,7 +8,7 @@ const theme = {
 
   dark: {
     theme: 'dark',
-    backgroundColor: '#483D8B',
+    backgroundColor: '#363642',
     color: 'white',
 
   },
