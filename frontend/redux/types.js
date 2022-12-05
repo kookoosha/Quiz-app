@@ -10,3 +10,4 @@ export const SET_LEVELS = 'SET_POSTS';
 // QUESTION
 export const SET_QUESTION = 'SET_QUESTION';
 export const EMPTY_QUESTION = 'EMPTY_QUESTION';
+export const ADD_QUESTION = 'ADD_QUESTION';

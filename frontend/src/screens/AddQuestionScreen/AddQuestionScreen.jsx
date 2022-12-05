@@ -1,15 +1,17 @@
 import React, { useContext } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import AddQuestion from '../../components/AddQuestion/AddQuestion';
 import themeContext from '../../ThemeContext/themeContext';
 import styles from '../MainScreen/mainScreen';
 
-export default function TextBookScreen() {
+function AddQuestionScreen() {
   const theme = useContext(themeContext);
+
   return (
     <View style={[styles.card, { backgroundColor: theme.backgroundColor }]}>
-      <Text style={[styles.btnText, { color: theme.color }]}>
-        Выберете тему
-      </Text>
+      <AddQuestion />
     </View>
   );
 }
+
+export default AddQuestionScreen;
