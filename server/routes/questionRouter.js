@@ -8,7 +8,7 @@ questionRouter.route('/:id')
   .get(async (req, res) => {
     const { id } = req.params;
     try {
-      console.log(id);
+      // console.log(id);
       const result = await Question.findAll({
         where: { level_id: id },
       });

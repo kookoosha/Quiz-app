@@ -14,8 +14,8 @@ import styles from '../../screens/MainScreen/mainScreen';
 import theme from '../../ThemeContext/Theme';
 
 WebBrowser.maybeCompleteAuthSession();
-const CLIENT_SECRET = 'f4b39b8e99de8b1cbdeed557e36b45dc362fed6d';
-const CLIENT_ID = 'e389f41020741ae24553';
+const CLIENT_SECRET = '240728e3da06e34c6d19dc6fe260c55f25db9dc8';
+const CLIENT_ID = 'e7e0dbdf9df4beb0df04';
 
 const discovery = {
   authorizationEndpoint: 'https://github.com/login/oauth/authorize',
