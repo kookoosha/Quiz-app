@@ -7,13 +7,15 @@ import {
 import styles from '../../screens/TextBookScreen/textBookScreen';
 
 export default function CategoryCard() {
-  const [categories, setCategories] = useState([]);
+  // const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
-    axios('https://638dd689aefc455fb2ad5d2b.mockapi.io/categories')
-      .then((res) => setCategories(res.data))
-      .catch(console.log);
-  }, []);
+  // useEffect(() => {
+  //   axios('https://638dd689aefc455fb2ad5d2b.mockapi.io/categories')
+  //     .then((res) => setCategories(res.data))
+  //     .catch(console.log);
+  // }, []);
+
+  const categories = ['Введение в JavaScript', 'Основы JavaScript', 'Объекты: основы', 'Типы данных', 'Продвинутая работа с функциями', 'Свойства объекта', 'Прототипы, наследование', 'Классы', 'Промисы, async/await', 'Обработка ошибок'];
 
   return (
     <ScrollView>
@@ -24,7 +26,7 @@ export default function CategoryCard() {
         {categories?.map((el) => (
           <TouchableOpacity>
             <View style={styles.cardContainer}>
-              <Text style={styles.titleStyle}>{el.title}</Text>
+              <Text style={styles.titleStyle}>{el}</Text>
             </View>
           </TouchableOpacity>
 
