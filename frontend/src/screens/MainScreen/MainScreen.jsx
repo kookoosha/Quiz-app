@@ -1,11 +1,12 @@
 import { Button } from '@react-native-material/core';
 import { useNavigation } from '@react-navigation/native';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import {
   Image, StatusBar, Text, View,
 } from 'react-native';
 import { EventRegister } from 'react-native-event-listeners';
 import { Switch } from 'react-native-gesture-handler';
+import { useSelector } from 'react-redux';
 import themeContext from '../../ThemeContext/themeContext';
 import styles from './mainScreen';
 
@@ -13,7 +14,10 @@ export default function MainScreen() {
   const theme = useContext(themeContext);
   const [mode, setMode] = useState(false);
   const navigation = useNavigation();
+  const user = useSelector((store) => store.user);
+  useEffect(() => {
 
+  }, [user]);
   return (
 
     <View style={[styles.card, { backgroundColor: theme.backgroundColor }]}>
@@ -21,11 +25,15 @@ export default function MainScreen() {
       <Image style={[styles.logo]} source={require('./logo.png')} />
       <Text style={[styles.mainText, { color: theme.color }]}>JuSt do it!</Text>
       <View style={styles.mainPageBtns}>
-        <Button style={{ marginBottom: 30 }} title="Регистрация" onPress={() => navigation.navigate('')} />
-        <Button style={{ marginBottom: 30 }} title="Авторизация" onPress={() => navigation.navigate('')} />
-        <Button style={{ marginBottom: 30 }} title="Профиль" onPress={() => navigation.navigate('Profile')} />
-        <Button style={{ marginBottom: 30 }} title="Новый тест" onPress={() => navigation.navigate('Level')} />
-        <Button style={{ marginBottom: 30 }} title="Учебник JS" onPress={() => navigation.navigate('Textbook')} />
+        {!user?.login ? (
+          <Button style={{ marginBottom: 30 }} title="Авторизация" onPress={() => navigation.navigate('GitHubAuth')} />
+        ) : (
+          <>
+            <Button style={{ marginBottom: 30 }} title="Профиль" onPress={() => navigation.navigate('Profile')} />
+            <Button style={{ marginBottom: 30 }} title="Новый тест" onPress={() => navigation.navigate('Level')} />
+            <Button style={{ marginBottom: 30 }} title="Учебник JS" onPress={() => navigation.navigate('Textbook')} />
+          </>
+        )}
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
         <Switch
