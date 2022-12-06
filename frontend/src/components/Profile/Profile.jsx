@@ -20,7 +20,7 @@ function Profile() {
       <Avatar
         // icon={(user) => <Icon name="account" {...user?.avatar} />}
         icon={(props) => <Icon name="account" {...props} />}
-        label="Shakal"
+        label="Java Script"
         color="primary"
         size={110}
       />
