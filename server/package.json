@@ -19,6 +19,7 @@
     "eslint-plugin-react-hooks": "^4.6.0"
   },
   "dependencies": {
+    "@expo/vector-icons": "^13.0.0",
     "@faker-js/faker": "^7.6.0",
     "axios": "^1.2.0",
     "bcrypt": "^5.1.0",

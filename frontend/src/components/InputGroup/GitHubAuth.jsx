@@ -3,7 +3,8 @@ import * as React from 'react';
 import * as WebBrowser from 'expo-web-browser';
 import { makeRedirectUri, useAuthRequest } from 'expo-auth-session';
 import {
-  Button, View,
+  Alert,
+  Button, Image, Text, TouchableHighlight, View,
 } from 'react-native';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
@@ -13,8 +14,8 @@ import styles from '../../screens/MainScreen/mainScreen';
 import theme from '../../ThemeContext/Theme';
 
 WebBrowser.maybeCompleteAuthSession();
-const CLIENT_SECRET = '3838058d41cef9a1713953ed59c1398fcd20d590';
-const CLIENT_ID = 'a58832d189782355532e';
+const CLIENT_SECRET = '240728e3da06e34c6d19dc6fe260c55f25db9dc8';
+const CLIENT_ID = 'e7e0dbdf9df4beb0df04';
 
 const discovery = {
   authorizationEndpoint: 'https://github.com/login/oauth/authorize',
@@ -81,14 +82,47 @@ export default function GitHubAuth({ navigation }) {
   };
 
   return (
-    <View style={[styles.card, { backgroundColor: theme.backgroundColor }]}>
-      <View style={styles.mainPageBtns}>
-        <Button
+    <View style={{
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}
+    >
+      <Text>
+        Авторизация с помощью
+      </Text>
+      <Text>
+        GitHub
+      </Text>
+      <View>
+        {/* <Button
           style={{ marginBottom: 30 }}
           disabled={!request}
           title="Login"
           onPress={() => pressHandler()}
-        />
+        /> */}
+
+        <TouchableHighlight
+          onPress={() => pressHandler()}
+          underlayColor="transparent"
+          style={{
+            borderBottomWidth: 10,
+            borderTopWidth: 10,
+            borderLeftWidth: 10,
+            borderRightWidth: 10,
+            borderRadius: 120,
+          }}
+        >
+
+          <Image
+            style={{
+              resizeMode: 'contain',
+              width: 100,
+              height: 100,
+            }}
+            source={require('../../../assets/github_logo_icon_143772.png')}
+          />
+        </TouchableHighlight>
       </View>
     </View>
 

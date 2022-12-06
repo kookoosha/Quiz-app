@@ -29,6 +29,6 @@ module.exports = {
     'no-console': 0,
     'react/jsx-no-constructed-context-values': 0,
     'import/no-unresolved': 0,
-    'max-len': 0,
+    camelcase: 0,
   },
 };
