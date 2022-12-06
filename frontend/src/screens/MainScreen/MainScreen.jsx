@@ -44,19 +44,19 @@ export default function MainScreen() {
       <Image style={[styles.logo]} source={require('./logo.png')} />
       <Text style={[styles.mainText, { color: theme.color }]}>JuSt do it!</Text>
       <View style={styles.mainPageBtns}>
-        {!(user?.login) ? (
-          <View style={styles.mainPageBtns}>
-            <Button style={{ marginBottom: 30 }} title="Авторизация" onPress={() => navigation.navigate('GitHubAuth')} />
-          </View>
+        {/* {!(user?.login) ? ( */}
+        <View style={styles.mainPageBtns}>
+          <Button style={{ marginBottom: 30 }} title="Авторизация" onPress={() => navigation.navigate('GitHubAuth')} />
+        </View>
 
-        ) : (
-          <View style={styles.mainPageBtns}>
-            <Button style={{ marginBottom: 30 }} title="Профиль" onPress={() => navigation.navigate('Profile')} />
-            <Button style={{ marginBottom: 30 }} title="Новый тест" onPress={() => navigation.navigate('Level')} />
-            <Button style={{ marginBottom: 30 }} title="Учебник JS" onPress={() => navigation.navigate('Textbook')} />
-          </View>
+        {/* ) : ( */}
+        <View style={styles.mainPageBtns}>
+          <Button style={{ marginBottom: 30 }} title="Профиль" onPress={() => navigation.navigate('Profile')} />
+          <Button style={{ marginBottom: 30 }} title="Новый тест" onPress={() => navigation.navigate('Level')} />
+          <Button style={{ marginBottom: 30 }} title="Учебник JS" onPress={() => navigation.navigate('Textbook')} />
+        </View>
 
-        )}
+        {/* )} */}
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
         <Switch

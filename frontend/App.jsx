@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AppBar } from '@react-native-material/core';
 import { EventRegister } from 'react-native-event-listeners';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Provider, useSelector } from 'react-redux';
+import { Provider } from 'react-redux';
 import axios from 'axios';
 import themeContext from './src/ThemeContext/themeContext';
 import theme from './src/ThemeContext/Theme';
@@ -55,8 +55,8 @@ function App({ id }) {
           headerShown: false,
         }}
         >
+          {/* <Stack.Screen name="GitHubAuth" component={GitHubAuth} /> */}
           <Stack.Screen name="Main" component={MainScreen} />
-          <Stack.Screen name="GitHubAuth" component={GitHubAuth} />
           <Stack.Screen name="Level" component={LevelsScreen} />
           <Stack.Screen name="Que" component={Question} />
           <Stack.Screen name="Textbook" component={TextBookScreen} />

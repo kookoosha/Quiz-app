@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import styles from '../../screens/TextBookScreen/textBookScreen';
 
-export default function CategoryCard({ id }) {
+export default function CategoryCard() {
   const [categories, setCategories] = useState([]);
   const navigation = useNavigation();
 
