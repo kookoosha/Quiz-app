@@ -15,6 +15,7 @@ import MainScreen from './src/screens/MainScreen/MainScreen';
 import LevelsScreen from './src/screens/LevelsScreen/LevelsScreen';
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import AddQuestionScreen from './src/screens/AddQuestionScreen/AddQuestionScreen';
+import AddAnswersScreen from './src/screens/AddAnswersScreen/AddAnswersScreen';
 import GitHubAuth from './src/components/InputGroup/GitHubAuth';
 
 axios.defaults.baseURL = 'http://localhost:3001';
@@ -61,6 +62,7 @@ function App() {
           <Stack.Screen name="Textbook" component={TextBookScreen} />
           <Stack.Screen name="Profile" component={ProfileScreen} />
           <Stack.Screen name="AddQuestion" component={AddQuestionScreen} />
+          <Stack.Screen name="AddAnswers" component={AddAnswersScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </themeContext.Provider>
