@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import { LOGOUT, SET_EMPTY_USER, SET_USER } from '../types';
 
