@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { setUser } from '../../../redux/actions/userActions';
 import styles from '../../screens/MainScreen/mainScreen';
 import theme from '../../ThemeContext/Theme';
@@ -36,10 +37,18 @@ export default function GitHubAuth({ navigation }) {
     },
     discovery,
   );
-
+  const storeData = async (user) => {
+    try {
+      const jsonValue = JSON.stringify(user);
+      await AsyncStorage.setItem('user', jsonValue);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   React.useEffect(() => {
     axios.get('https://api.github.com/user', { headers: { Authorization: `Bearer ${str}` } })
       .then((res) => {
+        storeData(res.data);
         dispatch(setUser(res.data));
       }).then(() => {
         navigation.navigate('Main');
@@ -49,7 +58,6 @@ export default function GitHubAuth({ navigation }) {
   const token = (string) => {
     const t = string.slice(13, 53);
     setStr(t);
-    console.log('str=====>', str);
   };
 
   const tokenAll = (code) => axios.post(`https://github.com/login/oauth/access_token?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&code=${code}`)
@@ -63,7 +71,6 @@ export default function GitHubAuth({ navigation }) {
     if (response?.type === 'success') {
       const { code } = response.params;
       tokenAll(code);
-      console.log(code);
     } else {
       console.log('Ты попал в элс');
     }
@@ -75,7 +82,6 @@ export default function GitHubAuth({ navigation }) {
 
   return (
     <View style={[styles.card, { backgroundColor: theme.backgroundColor }]}>
-
       <View style={styles.mainPageBtns}>
         <Button
           style={{ marginBottom: 30 }}
