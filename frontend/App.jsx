@@ -10,9 +10,9 @@ import themeContext from './src/ThemeContext/themeContext';
 import theme from './src/ThemeContext/Theme';
 import Question from './src/components/Game/Question';
 import store from './redux/store';
+import TextBookScreen from './src/screens/TextBookScreen/TextBookScreen';
 import MainScreen from './src/screens/MainScreen/MainScreen';
 import LevelsScreen from './src/screens/LevelsScreen/LevelsScreen';
-import TextBookScreen from './src/screens/TextBook/TextBookScreen';
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import AddQuestionScreen from './src/screens/AddQuestionScreen/AddQuestionScreen';
 import GitHubAuth from './src/components/InputGroup/GitHubAuth';
@@ -43,9 +43,10 @@ function App() {
       <NavigationContainer>
         <AppBar
           style={{
-            paddingTop: insets.top,
+            paddingTop: insets.top, backgroundColor: '#FFD700',
           }}
           title="JS Learner"
+          tintColor="black"
           centerTitle
           color="primary"
         />

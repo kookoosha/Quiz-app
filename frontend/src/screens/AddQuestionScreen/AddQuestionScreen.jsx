@@ -1,10 +1,15 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { useContext } from 'react';
+import { View } from 'react-native';
+import AddQuestion from '../../components/AddQuestion/AddQuestion';
+import themeContext from '../../ThemeContext/themeContext';
+import styles from '../MainScreen/mainScreen';
 
 function AddQuestionScreen() {
+  const theme = useContext(themeContext);
+
   return (
-    <View>
-      <Text>AddQuestionScreen</Text>
+    <View style={[styles.card, { backgroundColor: theme.backgroundColor }]}>
+      <AddQuestion />
     </View>
   );
 }

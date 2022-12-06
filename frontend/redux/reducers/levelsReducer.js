@@ -6,7 +6,7 @@ export default function postsReducer(state = [], action) {
   const { type, payload } = action;
   switch (type) {
     case SET_LEVELS:
-      return payload; // payload === allLevels
+      return [...state, payload]; // payload === allLevels
     default:
       return state;
   }

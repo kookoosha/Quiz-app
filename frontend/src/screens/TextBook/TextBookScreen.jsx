@@ -10,7 +10,6 @@ export default function TextBookScreen() {
       <Text style={[styles.btnText, { color: theme.color }]}>
         Выберете тему
       </Text>
-
     </View>
   );
 }
