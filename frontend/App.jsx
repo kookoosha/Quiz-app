@@ -16,13 +16,14 @@ import LevelsScreen from './src/screens/LevelsScreen/LevelsScreen';
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import AddQuestionScreen from './src/screens/AddQuestionScreen/AddQuestionScreen';
 import GitHubAuth from './src/components/InputGroup/GitHubAuth';
+import ThemeList from './src/components/ThemeList/ThemeList';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
 
 const Stack = createNativeStackNavigator();
 
-function App() {
+function App({ id }) {
   const insets = useSafeAreaInsets();
   const [mode, setMode] = useState(false);
 
@@ -61,6 +62,7 @@ function App() {
           <Stack.Screen name="Textbook" component={TextBookScreen} />
           <Stack.Screen name="Profile" component={ProfileScreen} />
           <Stack.Screen name="AddQuestion" component={AddQuestionScreen} />
+          <Stack.Screen name="ThemeList" component={ThemeList} />
         </Stack.Navigator>
       </NavigationContainer>
     </themeContext.Provider>
