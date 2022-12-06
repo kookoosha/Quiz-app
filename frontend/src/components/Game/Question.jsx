@@ -10,7 +10,7 @@ import { getLevels } from '../../../redux/actions/levelsActions';
 import { emptyQuestion, getQuestions } from '../../../redux/actions/questionAction';
 import OneQuestion from './OneQuestion';
 import { getAnswers, setAnswers } from '../../../redux/actions/answersAction';
-import { getScore, setScore } from '../../../redux/actions/scoreAction';
+import { emptyScore, getScore, setScore } from '../../../redux/actions/scoreAction';
 
 export default function Question() {
   const dispatch = useDispatch();
@@ -26,7 +26,10 @@ export default function Question() {
 
   useEffect(() => {
     dispatch(getQuestions(itemId));
-    return () => dispatch(emptyQuestion());
+    return () => {
+      dispatch(emptyQuestion());
+      dispatch(emptyScore());
+    };
   }, []);
 
   useEffect(() => {
@@ -45,8 +48,27 @@ export default function Question() {
   return (
 
     <View>
-      {/* Здесь началась отрисовка и логика вопроса */}
 
+      {/* Здесь началась отрисовка и логика вопроса */}
+      <View style={{
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 20,
+        marginBottom: 20,
+      }}
+      >
+
+        <Text>{JSON.stringify(score)}</Text>
+        {Array.isArray(score) && score?.map((el) => (
+
+          <View key={el.id}>
+            {el && <Icon name="lightbulb" size={20} color="#19a600" />}
+            {!el && <Icon name="lightbulb" size={20} color="red" />}
+          </View>
+        ))}
+
+      </View>
       <ImageBackground source={image} resizeMode="cover">
         <View style={{ width: '100%' }}>
           <View style={{
@@ -60,8 +82,6 @@ export default function Question() {
 
           }}
           >
-            {color && <Icon name="lightbulb" size={40} color="#19a600" />}
-            {!color && <Icon name="lightbulb" size={40} color="red" />}
 
             <View>
               <Text
@@ -84,8 +104,8 @@ export default function Question() {
               <Button
                 onPress={() => {
                   dispatch(setScore(el?.isCorrect));
-
                   setColor(el?.isCorrect);
+                  setCurrentQuestion((prev) => question[question.indexOf(prev) + 1]);
                 }}
               // uppercase={false}
                 variant="Button"
@@ -97,10 +117,11 @@ export default function Question() {
           </ImageBackground>
           // </View>
         ))}
-        <Button onPress={() => { setCurrentQuestion((prev) => question[question.indexOf(prev) + 1]); }} title="Следующий вопрос" color="#d4ac2d" />
+
       </View>
 
-      {!currQuestion && !activ && <Button onPress={() => { dispatch(getScore()); setActiv(true); }} title="Закончить тестирование" color="#d4ac2d" />}
+      {!currQuestion && !activ && <Button onPress={() => { dispatch(getScore()); }} title="Закончить тестирование" color="#d4ac2d" />}
+      {currQuestion && <Button onPress={() => { setCurrentQuestion((prev) => question[question.indexOf(prev) + 1]); }} title="Следующий вопрос" color="#d4ac2d" />}
       {activ && <Text>{`Количество правильных ответов:${JSON.stringify(score)}`}</Text>}
     </View>
   );

@@ -1,4 +1,6 @@
-import { GET_SCORE, SET_ANSWERS, SET_SCORE } from '../types';
+import {
+  EMPTY_SCORE, GET_SCORE, SET_ANSWERS, SET_SCORE,
+} from '../types';
 
 export default function scoreReducer(state = [], action) {
   const { type, payload } = action;
@@ -11,6 +13,8 @@ export default function scoreReducer(state = [], action) {
         return state.reduce((acc, e) => acc + e, 0);
       }
       return state;
+    case EMPTY_SCORE:
+      return [];
 
     default:
       return state;
