@@ -33,6 +33,10 @@ const styles = StyleSheet.create({
     height: 30,
     width: 30,
   },
+
+  selectList: {
+    width: 200,
+  },
 });
 
 export default styles;
