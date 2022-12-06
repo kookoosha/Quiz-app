@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import answerReducer from './reducers/answerReduser';
 import levelsReducer from './reducers/levelsReducer';
 import questionReducer from './reducers/questionReduser';
 import userReducer from './reducers/userReducer';
@@ -8,6 +9,7 @@ const store = configureStore({
     user: userReducer,
     levels: levelsReducer,
     question: questionReducer,
+    answers: answerReducer,
   },
 });
 
