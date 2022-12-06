@@ -14,3 +14,6 @@ export const ADD_QUESTION = 'ADD_QUESTION';
 
 // ANSWERS
 export const SET_ANSWERS = 'SET_ANSWERS';
+// SCORE
+export const SET_SCORE = 'SET_SCORE';
+export const GET_SCORE = 'GET_SCORE';
