@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import { Avatar, Button, Icon } from '@react-native-material/core';
 import { useNavigation } from '@react-navigation/native';
@@ -21,11 +22,12 @@ function Profile() {
         // icon={(user) => <Icon name="account" {...user?.avatar} />}
         icon={(props) => <Icon name="account" {...props} />}
         label="Java Script"
+        image={{ uri: user?.avatar_url }}
         color="primary"
         size={110}
       />
       <Text>{user?.name}</Text>
-      <Text>Ваш очки:</Text>
+      <Text>Ваши очки:</Text>
       <Button style={{ marginTop: 30 }} title="Добавить вопрос" onPress={() => navigation.navigate('AddQuestion')} />
       <Button style={{ marginTop: 30 }} title="Выход" onPress={logoutHandler} />
     </View>
