@@ -18,6 +18,8 @@ export default function Question() {
   const [currQuestion, setCurrentQuestion] = useState(question[0] || {});
   const route = useRoute();
   const { itemId, otherParam } = route.params;
+  const [activ, setActiv] = useState(false);
+  const [color, setColor] = useState(false);
 
   useEffect(() => {
     dispatch(getQuestions(itemId));
@@ -34,6 +36,7 @@ export default function Question() {
   useEffect(() => {
     dispatch(getAnswers(currQuestion?.id));
   }, [currQuestion]);
+
   return (
 
     <View>
@@ -42,14 +45,22 @@ export default function Question() {
       <View fill center spacing={4}>
         {answers?.map((el) => (
           <View key={el.id} style={{ marginBottom: 3 }}>
-            <Button onPress={() => dispatch(setScore(el?.isCorrect))} uppercase={false} variant="Button" title={el.title} color="#f5c542" />
+            <Button
+              onPress={() => {
+                dispatch(setScore(el?.isCorrect));
+                setCurrentQuestion((prev) => question[question.indexOf(prev) + 1]);
+              }}
+              uppercase={false}
+              variant="Button"
+              title={el.title}
+              color="#f5c542"
+            />
           </View>
         ))}
       </View>
-      <Text>{JSON.stringify(score)}</Text>
-      <Button onPress={() => setCurrentQuestion((prev) => question[question.indexOf(prev) + 1])} title="Next" color="#d4ac2d" />
-      <Button onPress={() => dispatch(getScore())} title="Score" color="#d4ac2d" />
 
+      {!currQuestion && !activ && <Button onPress={() => { dispatch(getScore()); setActiv(true); }} title="Закончить тестирование" color="#d4ac2d" />}
+      {activ && <Text>{`Количество правильных ответов:${JSON.stringify(score)}`}</Text>}
     </View>
   );
 }

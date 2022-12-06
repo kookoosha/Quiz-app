@@ -8,7 +8,7 @@ export default function scoreReducer(state = [], action) {
 
     case GET_SCORE:
       if (Array.isArray(state)) {
-        return state.reduce((acc, e) => acc + e);
+        return state.reduce((acc, e) => acc + e, 0);
       }
       return state;
 
