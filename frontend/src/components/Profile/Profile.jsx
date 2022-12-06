@@ -24,6 +24,7 @@ function Profile() {
         label="Java Script"
         color="primary"
         size={110}
+        image={{ uri: user.avatar_url }}
       />
       <Text>{user?.name}</Text>
       <Text>Ваши очки:</Text>
