@@ -15,6 +15,7 @@ import MainScreen from './src/screens/MainScreen/MainScreen';
 import LevelsScreen from './src/screens/LevelsScreen/LevelsScreen';
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import AddQuestionScreen from './src/screens/AddQuestionScreen/AddQuestionScreen';
+import GitHubAuth from './src/components/InputGroup/GitHubAuth';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
@@ -49,7 +50,11 @@ function App() {
           centerTitle
           color="primary"
         />
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{
+          headerShown: false,
+        }}
+        >
+          <Stack.Screen name="GitHubAuth" component={GitHubAuth} />
           <Stack.Screen name="Main" component={MainScreen} />
           <Stack.Screen name="Level" component={LevelsScreen} />
           <Stack.Screen name="Que" component={Question} />
