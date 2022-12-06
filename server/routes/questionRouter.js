@@ -5,11 +5,10 @@ const questionRouter = express.Router();
 
 questionRouter.route('/:id')
 // отдаю на фронт все вопросы из БД
-
   .get(async (req, res) => {
     const { id } = req.params;
     try {
-      console.log(id);
+      // console.log(id);
       const result = await Question.findAll({
         where: { level_id: id },
       });
