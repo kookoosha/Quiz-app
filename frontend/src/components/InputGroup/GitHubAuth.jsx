@@ -13,7 +13,7 @@ import styles from '../../screens/MainScreen/mainScreen';
 import theme from '../../ThemeContext/Theme';
 
 WebBrowser.maybeCompleteAuthSession();
-const CLIENT_SECRET = '3838058d41cef9a1713953ed59c1398fcd20d590';
+const CLIENT_SECRET = '240728e3da06e34c6d19dc6fe260c55f25db9dc8';
 const CLIENT_ID = 'e7e0dbdf9df4beb0df04';
 
 const discovery = {
