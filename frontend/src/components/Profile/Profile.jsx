@@ -4,17 +4,21 @@ import { Avatar, Button, Icon } from '@react-native-material/core';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from '../../screens/MainScreen/mainScreen';
 import theme from '../../ThemeContext/Theme';
-import { logoutUser } from '../../../redux/actions/userActions';
+import { setUser } from '../../../redux/actions/userActions';
+// import { logoutUser } from '../../../redux/actions/userActions';
 
-function Profile() {
+function Profile({ navigate }) {
   const user = useSelector((store) => store.user);
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
   const logoutHandler = () => {
-    dispatch(logoutUser());
+    AsyncStorage.clear();
+    dispatch(setUser({}));
+    navigation.navigate('Main');
   };
   return (
     <View style={[styles.card, { backgroundColor: theme.backgroundColor, marginBottom: 150 }]}>
