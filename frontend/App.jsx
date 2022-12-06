@@ -55,7 +55,7 @@ function App({ id }) {
           headerShown: false,
         }}
         >
-          {/* <Stack.Screen name="GitHubAuth" component={GitHubAuth} /> */}
+          <Stack.Screen name="GitHubAuth" component={GitHubAuth} />
           <Stack.Screen name="Main" component={MainScreen} />
           <Stack.Screen name="Level" component={LevelsScreen} />
           <Stack.Screen name="Que" component={Question} />
