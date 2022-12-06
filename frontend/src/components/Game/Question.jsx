@@ -1,7 +1,9 @@
-import { Stack, Button, ListItem } from '@react-native-material/core';
+import {
+  Stack, Button, ListItem, Icon,
+} from '@react-native-material/core';
 import { useRoute } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { Text, View } from 'react-native';
+import { ImageBackground, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { getLevels } from '../../../redux/actions/levelsActions';
@@ -20,6 +22,7 @@ export default function Question() {
   const { itemId, otherParam } = route.params;
   const [activ, setActiv] = useState(false);
   const [color, setColor] = useState(false);
+  const [counter, setCounter] = useState(1);
 
   useEffect(() => {
     dispatch(getQuestions(itemId));
@@ -37,26 +40,64 @@ export default function Question() {
     dispatch(getAnswers(currQuestion?.id));
   }, [currQuestion]);
 
+  const image = { uri: 'https://kartinkin.net/uploads/posts/2021-07/1627139562_29-kartinkin-com-p-fon-belo-zheltii-gradient-krasivo-30.jpg' };
+
   return (
 
     <View>
-      <ListItem title={currQuestion?.title} />
+      {/* Здесь началась отрисовка и логика вопроса */}
 
+      <ImageBackground source={image} resizeMode="cover">
+        <View style={{ width: '100%' }}>
+          <View style={{
+            // marginTop: 50,
+            // marginLeft: 10,
+            // marginRight: 10,
+            margin: 30,
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+
+          }}
+          >
+            {color && <Icon name="lightbulb" size={40} color="#19a600" />}
+            {!color && <Icon name="lightbulb" size={40} color="red" />}
+
+            <View>
+              <Text
+                style={{ alignItems: 'center', fontSize: 24, padding: 10 }}
+              >
+                {currQuestion?.title}
+
+              </Text>
+              {/* <ListItem title={currQuestion?.title} /> */}
+            </View>
+          </View>
+        </View>
+      </ImageBackground>
+      {/* Здесь закончилась отрисовка и логика вопроса */}
       <View fill center spacing={4}>
         {answers?.map((el) => (
-          <View key={el.id} style={{ marginBottom: 3 }}>
-            <Button
-              onPress={() => {
-                dispatch(setScore(el?.isCorrect));
-                setCurrentQuestion((prev) => question[question.indexOf(prev) + 1]);
-              }}
-              uppercase={false}
-              variant="Button"
-              title={el.title}
-              color="#f5c542"
-            />
-          </View>
+          // <View style={{ backgroundColor: 'red', borderRadius: 130, margin: 10 }}>
+          <ImageBackground style={{ borderRadius: 30, margin: 10 }} source={image} resizeMode="cover">
+            <View key={el.id} style={{ marginBottom: 3, fontSize: 20 }}>
+              <Button
+                onPress={() => {
+                  dispatch(setScore(el?.isCorrect));
+
+                  setColor(el?.isCorrect);
+                }}
+              // uppercase={false}
+                variant="Button"
+                title={`${el.title}`}
+                color="black"
+                style={{ padding: 20 }}
+              />
+            </View>
+          </ImageBackground>
+          // </View>
         ))}
+        <Button onPress={() => { setCurrentQuestion((prev) => question[question.indexOf(prev) + 1]); }} title="Следующий вопрос" color="#d4ac2d" />
       </View>
 
       {!currQuestion && !activ && <Button onPress={() => { dispatch(getScore()); setActiv(true); }} title="Закончить тестирование" color="#d4ac2d" />}

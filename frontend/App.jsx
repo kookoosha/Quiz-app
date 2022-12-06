@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { AppBar } from '@react-native-material/core';
+import { AppBar, IconComponentProvider } from '@react-native-material/core';
 import { EventRegister } from 'react-native-event-listeners';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Provider, useSelector } from 'react-redux';
 import axios from 'axios';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import themeContext from './src/ThemeContext/themeContext';
 import theme from './src/ThemeContext/Theme';
 import Question from './src/components/Game/Question';
@@ -71,7 +72,9 @@ function AppProvider() {
   return (
     <Provider store={store}>
       <SafeAreaProvider>
-        <App />
+        <IconComponentProvider IconComponent={MaterialCommunityIcons}>
+          <App />
+        </IconComponentProvider>
       </SafeAreaProvider>
     </Provider>
   );
