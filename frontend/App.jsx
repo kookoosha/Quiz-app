@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AppBar, IconComponentProvider } from '@react-native-material/core';
 import { EventRegister } from 'react-native-event-listeners';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Provider, useSelector } from 'react-redux';
+import { Provider } from 'react-redux';
 import axios from 'axios';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import themeContext from './src/ThemeContext/themeContext';
@@ -18,13 +18,14 @@ import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import AddQuestionScreen from './src/screens/AddQuestionScreen/AddQuestionScreen';
 import AddAnswersScreen from './src/screens/AddAnswersScreen/AddAnswersScreen';
 import GitHubAuth from './src/components/InputGroup/GitHubAuth';
+import ThemeList from './src/components/ThemeList/ThemeList';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
 
 const Stack = createNativeStackNavigator();
 
-function App() {
+function App({ id }) {
   const insets = useSafeAreaInsets();
   const [mode, setMode] = useState(false);
 
@@ -56,13 +57,14 @@ function App() {
           headerShown: false,
         }}
         >
-          <Stack.Screen name="Main" component={MainScreen} />
           <Stack.Screen name="GitHubAuth" component={GitHubAuth} />
+          <Stack.Screen name="Main" component={MainScreen} />
           <Stack.Screen name="Level" component={LevelsScreen} />
           <Stack.Screen name="Que" component={Question} />
           <Stack.Screen name="Textbook" component={TextBookScreen} />
           <Stack.Screen name="Profile" component={ProfileScreen} />
           <Stack.Screen name="AddQuestion" component={AddQuestionScreen} />
+          <Stack.Screen name="ThemeList" component={ThemeList} />
           <Stack.Screen name="AddAnswers" component={AddAnswersScreen} />
         </Stack.Navigator>
       </NavigationContainer>

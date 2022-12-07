@@ -1,6 +1,6 @@
+import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-
 import {
   ScrollView, Text, TouchableOpacity, View,
 } from 'react-native';
@@ -8,6 +8,7 @@ import styles from '../../screens/TextBookScreen/textBookScreen';
 
 export default function CategoryCard() {
   const [categories, setCategories] = useState([]);
+  const navigation = useNavigation();
 
   useEffect(() => {
     axios('https://638dd689aefc455fb2ad5d2b.mockapi.io/categories')
@@ -17,19 +18,16 @@ export default function CategoryCard() {
 
   return (
     <ScrollView>
-      <View style={{
-        flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around',
-      }}
-      >
+      <View style={styles.container}>
         {categories?.map((el) => (
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('ThemeList', { param: el.id })} // ${el.id}
+          >
             <View style={styles.cardContainer}>
               <Text style={styles.titleStyle}>{el.title}</Text>
             </View>
           </TouchableOpacity>
-
         ))}
-
       </View>
     </ScrollView>
 
