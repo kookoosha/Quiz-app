@@ -12,7 +12,9 @@ import { getLevels } from '../../../redux/actions/levelsActions';
 import { emptyQuestion, getQuestions } from '../../../redux/actions/questionAction';
 import OneQuestion from './OneQuestion';
 import { getAnswers, setAnswers } from '../../../redux/actions/answersAction';
-import { emptyScore, getScore, setScore } from '../../../redux/actions/scoreAction';
+import {
+  emptyScore, getScore, setScore, updateScore,
+} from '../../../redux/actions/scoreAction';
 
 export default function Question() {
   const dispatch = useDispatch();
@@ -22,9 +24,10 @@ export default function Question() {
   const [currQuestion, setCurrentQuestion] = useState(question[0] || {});
   const route = useRoute();
   const { itemId, otherParam } = route.params;
-  const [activ, setActiv] = useState(false);
-  const [color, setColor] = useState(false);
+  const [activ, setActiv] = useState(null);
+  // const [color, setColor] = useState(false);
   const [counter, setCounter] = useState(1);
+  console.log('scooooore', score);
 
   useEffect(() => {
     dispatch(getQuestions(itemId));
@@ -38,8 +41,8 @@ export default function Question() {
     setCurrentQuestion(question[0]);
   }, [question]);
 
-  console.log('currQ', currQuestion);
-  console.log('Answers on front', answers);
+  // console.log('currQ', currQuestion);
+  // console.log('Answers on front', answers);
 
   useEffect(() => {
     dispatch(getAnswers(currQuestion?.id));
@@ -47,7 +50,6 @@ export default function Question() {
 
   const image = { uri: 'https://i.pinimg.com/originals/ce/fd/bb/cefdbb470cf74f3857f5eb8458c3a17e.jpg' };
 
- 
   return (
 
     <View>
@@ -62,10 +64,18 @@ export default function Question() {
       >
         {Array.isArray(score) && score?.map((el) => (
 
-          <View key={el.id}>
-            {el && <Icon name="lightbulb" size={20} color="#19a600" />}
-            {!el && <Icon name="lightbulb" size={20} color="red" />}
-          </View>
+          // <View key={el.id}>
+          //   {el === null && score.map((el) => <Icon name="lightbulb" size={20} color="gray" />)}
+          //   {el === true && <Icon name="lightbulb" size={20} color="#19a600" />}
+          //   {el === false && <Icon name="lightbulb" size={20} color="red" />}
+          // </View>
+          <Icon
+            name="lightbulb"
+            size={20}
+            color={
+            el === null ? 'gray' : el ? '#19a600' : 'red'
+          }
+          />
         ))}
       </View>
 
@@ -144,8 +154,12 @@ export default function Question() {
 
             <Pressable
               onPress={() => {
-                dispatch(setScore(el?.isCorrect));
-                setColor(el?.isCorrect);
+                const index = question.findIndex((quest) => quest.id === currQuestion.id);
+                dispatch(updateScore({
+                  index,
+                  value: el?.isCorrect,
+                }));
+                // setColor(el?.isCorrect);
                 setCurrentQuestion((prev) => question[question.indexOf(prev) + 1]);
                 setCounter((prev) => prev + 1);
               }}
@@ -165,7 +179,7 @@ export default function Question() {
 
       </View>
 
-      {!currQuestion && !activ && <Button onPress={() => { dispatch(getScore()); setActiv(true); }} title="Закончить тестирование" color="#d4ac2d" />}
+      {!currQuestion && !activ && <Button style={{ padding: 20 }} onPress={() => { dispatch(getScore()); setActiv(true); }} title="Закончить тестирование" color="#d4ac2d" />}
       {currQuestion && (
         <View style={{
           alignItems: 'flex-end',
