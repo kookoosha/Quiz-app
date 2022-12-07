@@ -14,8 +14,11 @@ WebBrowser.maybeCompleteAuthSession();
 // const CLIENT_SECRET = '240728e3da06e34c6d19dc6fe260c55f25db9dc8';
 // const CLIENT_ID = 'e7e0dbdf9df4beb0df04';
 
-const CLIENT_SECRET = '99bdf6bd4a8bc75f75f6b09b96467779ac0bb29f'; // Ключи Насти, не удалять
-const CLIENT_ID = 'e389f41020741ae24553';
+// const { CLIENT_SECRET } = process.env; // Ключи Насти, не удалять
+// const { CLIENT_ID } = process.env;
+
+const CLIENT_ID = 'adc41a463eca775a7c9e';
+const CLIENT_SECRET = '536ccb679e41844a74a5a386abaff1a6b81ea576';
 
 const discovery = {
   authorizationEndpoint: 'https://github.com/login/oauth/authorize',
