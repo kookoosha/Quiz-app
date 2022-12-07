@@ -11,11 +11,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { setUser } from '../../../redux/actions/userActions';
 
 WebBrowser.maybeCompleteAuthSession();
-const CLIENT_SECRET = '240728e3da06e34c6d19dc6fe260c55f25db9dc8';
-const CLIENT_ID = 'e7e0dbdf9df4beb0df04';
+// const CLIENT_SECRET = '240728e3da06e34c6d19dc6fe260c55f25db9dc8';
+// const CLIENT_ID = 'e7e0dbdf9df4beb0df04';
 
-// const CLIENT_SECRET = '146bcae235aeafcee1a7cbc675545f233ae65f6f'; Ключи Денис, не удалять
-// const CLIENT_ID = 'a58832d189782355532e';
+// const { CLIENT_SECRET } = process.env; // Ключи Насти, не удалять
+// const { CLIENT_ID } = process.env;
+
+const CLIENT_ID = 'adc41a463eca775a7c9e';
+const CLIENT_SECRET = '536ccb679e41844a74a5a386abaff1a6b81ea576';
 
 const discovery = {
   authorizationEndpoint: 'https://github.com/login/oauth/authorize',

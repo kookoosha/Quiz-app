@@ -20,3 +20,4 @@ export const ADD_ANSWER = 'ADD_ANSWER';
 export const SET_SCORE = 'SET_SCORE';
 export const GET_SCORE = 'GET_SCORE';
 export const EMPTY_SCORE = 'EMPTY_SCORE';
+export const UPDATE_SCORE = 'UPDATE_SCORE';
