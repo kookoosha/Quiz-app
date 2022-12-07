@@ -12,3 +12,11 @@ export const getQuestions = (id) => (dispatch) => {
     })
     .catch((error) => console.log('My Error! ->', error));
 };
+
+export const addQue = (data) => (dispatch) => {
+  axios.post('http://192.168.2.246:3001/addQuestion')
+    .then((res) => {
+      dispatch(addQuestion(res.data));
+    })
+    .catch((error) => console.log('My Error! ->', error));
+};
