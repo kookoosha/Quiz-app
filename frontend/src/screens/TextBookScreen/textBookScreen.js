@@ -1,7 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-const deviceWidth = Math.round(Dimensions.get('window').width);
-const offset = 40;
 const radius = 20;
 
 const styles = StyleSheet.create({
@@ -14,12 +12,12 @@ const styles = StyleSheet.create({
 
   cardContainer: {
     flex: 1,
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: 15,
+    marginBottom: 15,
     justifyContent: 'center',
     alignItems: 'center',
-    width: 140,
-    backgroundColor: '#a29bfe',
+    width: 150,
+    backgroundColor: '#6200ef',
     height: 130,
     borderRadius: radius,
 
@@ -34,9 +32,10 @@ const styles = StyleSheet.create({
   },
 
   titleStyle: {
-    fontSize: 20,
-    fontWeight: '500',
+    fontSize: 21,
+    fontWeight: '400',
     textAlign: 'center',
+    color: 'white',
   },
 
 });
