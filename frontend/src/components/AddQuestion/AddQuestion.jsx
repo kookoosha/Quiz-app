@@ -5,7 +5,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { Button, TextInput } from '@react-native-material/core';
 import { useNavigation } from '@react-navigation/native';
-import { addQuestion } from '../../../redux/actions/questionAction';
+// import { addQuestion } from '../../../redux/actions/questionAction';
 
 export default function AddQuestion() {
   const navigation = useNavigation();

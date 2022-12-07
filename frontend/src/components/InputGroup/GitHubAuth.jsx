@@ -95,13 +95,6 @@ export default function GitHubAuth({ navigation }) {
         GitHub
       </Text>
       <View>
-        {/* <Button
-          style={{ marginBottom: 30 }}
-          disabled={!request}
-          title="Login"
-          onPress={() => pressHandler()}
-        /> */}
-
         <TouchableHighlight
           onPress={() => pressHandler()}
           underlayColor="transparent"
@@ -113,7 +106,6 @@ export default function GitHubAuth({ navigation }) {
             borderRadius: 120,
           }}
         >
-
           <Image
             style={{
               resizeMode: 'contain',
