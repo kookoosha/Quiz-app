@@ -5,17 +5,16 @@ import {
 import { useDispatch } from 'react-redux';
 import { Button, TextInput } from '@react-native-material/core';
 import { useNavigation } from '@react-navigation/native';
-import { addQuestion } from '../../../redux/actions/questionAction';
+// import { addQuestion } from '../../../redux/actions/questionAction';
 
 export default function AddAnswers() {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const [inputs, setInputs] = useState({
-    title: '',
-  });
+  const [inputs, setInputs] = useState({});
   const [load, setLoad] = useState(false);
 
   const submitHandler = async () => {
+    console.log(inputs);
     if (inputs.title !== '') {
       setLoad(true);
       const response = await fetch(
@@ -29,15 +28,11 @@ export default function AddAnswers() {
         },
       );
       dispatch(inputs);
-      if (response.ok) {
-        // navigation.navigate('AddAnswers');
-        // Alert.alert('Вопрос добавлен!');
-      } else {
-        setLoad(false);
+      if (load === false) {
         navigation.goBack();
         Alert.alert('Ошибка соединения');
-      }
-    } else { Alert.alert('Заполните все поля'); }
+      } else { Alert.alert('Заполните все поля'); }
+    }
   };
 
   return (
@@ -50,35 +45,44 @@ export default function AddAnswers() {
         <TextInput
           style={{ marginTop: 15, marginBottom: 15, width: 200 }}
           variant="standard"
-          onChangeText={(title) => {
-            setInputs((prev) => ({ ...prev, title }));
+          onChangeText={(data) => {
+            setInputs((prev) => ({ ...prev, rightAnswer: data }));
           }}
         />
         <Text>Другой вариант ответа</Text>
         <TextInput
           style={{ marginBottom: 15, width: 200 }}
           variant="standard"
-          onChangeText={(title) => {
-            setInputs((prev) => ({ ...prev, title })); // answer1: data
+          onChangeText={(data) => {
+            setInputs((prev) => ({ ...prev, answer1: data })); // answer1: data
           }}
         />
         <Text>Ещё один ответ</Text>
         <TextInput
           style={{ marginBottom: 15, width: 200 }}
           variant="standard"
-          onChangeText={(title) => {
-            setInputs((prev) => ({ ...prev, title })); // answer2: data
+          onChangeText={(data) => {
+            setInputs((prev) => ({ ...prev, answer2: data })); // answer2: data
           }}
         />
         <Text>Последний ответ</Text>
         <TextInput
           style={{ marginBottom: 15, width: 200 }}
           variant="standard"
-          onChangeText={(title) => {
-            setInputs((prev) => ({ ...prev, title })); // answer3: data
+          onChangeText={(data) => {
+            setInputs((prev) => ({ ...prev, answer3: data })); // answer3: data
           }}
         />
-        <Button style={{ marginBottom: 15 }} title="Добавить" onPress={() => { submitHandler(); navigation.navigate('Profile'); }} />
+        <Button
+          style={{ marginBottom: 15 }}
+          title="Добавить"
+          onPress={() => {
+            submitHandler();
+            if (load) {
+              navigation.navigate('Profile');
+            }
+          }}
+        />
         <Button style={{ marginBottom: 5 }} title="Отмена" onPress={() => navigation.navigate('Profile')} />
       </View>
     </ScrollView>

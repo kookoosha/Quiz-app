@@ -27,14 +27,12 @@ export default function AddQuestion() {
           },
           body: JSON.stringify(inputs),
         },
-      );
+      ).then(() => navigation.navigate('AddAnswers'));
       dispatch(inputs);
       if (response.ok) {
-        // navigation.navigate('AddAnswers');
-        // Alert.alert('Вопрос добавлен!');
+        navigation.navigate('AddAnswers');
       } else {
         setLoad(false);
-        navigation.goBack();
         Alert.alert('Ошибка соединения');
       }
     } else { Alert.alert('Заполните все поля'); }
@@ -78,7 +76,13 @@ export default function AddQuestion() {
             setInputs((prev) => ({ ...prev, level_id }));
           }}
         />
-        <Button style={{ marginBottom: 15 }} title="Далее" onPress={() => { submitHandler(); navigation.navigate('AddAnswers'); }} />
+        <Button
+          style={{ marginBottom: 15 }}
+          title="Далее"
+          onPress={() => {
+            submitHandler();
+          }}
+        />
         <Button style={{ marginBottom: 5 }} title="Отмена" onPress={() => navigation.navigate('Profile')} />
       </View>
     </ScrollView>
