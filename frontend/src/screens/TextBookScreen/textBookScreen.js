@@ -6,26 +6,27 @@ const radius = 20;
 
 const styles = StyleSheet.create({
   container: {
-    // width: deviceWidth - 20,
-    // alignItems: 'center',
-    flexDirection: 'row',
     flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
   },
 
   cardContainer: {
     flex: 1,
-    marginTop: 25,
+    marginTop: 10,
+    marginBottom: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    width: 150,
+    width: 140,
     backgroundColor: '#a29bfe',
-    height: 150,
+    height: 130,
     borderRadius: radius,
 
     shadowColor: '#000',
     shadowOffset: {
-      width: 5,
-      height: 5,
+      width: 9,
+      height: 9,
     },
     shadowOpacity: 0.75,
     shadowRadius: 5,
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
 
   titleStyle: {
     fontSize: 20,
-    fontWeight: '400',
+    fontWeight: '500',
     textAlign: 'center',
   },
 
