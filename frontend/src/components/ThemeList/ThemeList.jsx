@@ -1,13 +1,14 @@
-import { ListItem } from '@react-native-material/core';
-// import { useNavigation } from '@react-navigation/native';
+import { Button, ListItem } from '@react-native-material/core';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Linking, ScrollView } from 'react-native';
+import styles from '../../screens/TextBookScreen/textBookScreen';
+import themeContext from '../../ThemeContext/themeContext';
 
 export default function ThemeList({ route }) {
   console.log(route.params.param);
   const [subCategory, setSubcategory] = useState([]);
-  //   const navigation = useNavigation();
+  const theme = useContext(themeContext);
 
   useEffect(() => {
     axios(`https://638f16129cbdb0dbe31c9fea.mockapi.io/subcategory${route.params.param}`)
@@ -16,9 +17,13 @@ export default function ThemeList({ route }) {
   }, []);
 
   return (
-    <ScrollView>
+    <ScrollView style={[styles.card, { backgroundColor: theme.backgroundColor }]}>
       {subCategory?.map((el) => (
-        <ListItem onPress={() => { Linking.openURL(`${el.url}`); }} title={el.name} />
+        <Button
+          style={{ marginTop: 22 }}
+          title={el.name}
+          onPress={() => Linking.openURL(`${el.url}`)}
+        />
       ))}
     </ScrollView>
   );
