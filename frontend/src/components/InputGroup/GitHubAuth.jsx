@@ -3,19 +3,19 @@ import * as React from 'react';
 import * as WebBrowser from 'expo-web-browser';
 import { makeRedirectUri, useAuthRequest } from 'expo-auth-session';
 import {
-  Alert,
-  Button, Image, Text, TouchableHighlight, View,
+  Image, Text, TouchableHighlight, View,
 } from 'react-native';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { setUser } from '../../../redux/actions/userActions';
-import styles from '../../screens/MainScreen/mainScreen';
-import theme from '../../ThemeContext/Theme';
 
 WebBrowser.maybeCompleteAuthSession();
 const CLIENT_SECRET = '240728e3da06e34c6d19dc6fe260c55f25db9dc8';
 const CLIENT_ID = 'e7e0dbdf9df4beb0df04';
+
+// const CLIENT_SECRET = '146bcae235aeafcee1a7cbc675545f233ae65f6f'; Ключи Денис, не удалять
+// const CLIENT_ID = 'a58832d189782355532e';
 
 const discovery = {
   authorizationEndpoint: 'https://github.com/login/oauth/authorize',
