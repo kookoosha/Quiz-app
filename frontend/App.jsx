@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { AppBar } from '@react-native-material/core';
+import { AppBar, IconComponentProvider } from '@react-native-material/core';
 import { EventRegister } from 'react-native-event-listeners';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Provider, useSelector } from 'react-redux';
+import { Provider } from 'react-redux';
 import axios from 'axios';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import themeContext from './src/ThemeContext/themeContext';
 import theme from './src/ThemeContext/Theme';
 import Question from './src/components/Game/Question';
@@ -15,14 +16,16 @@ import MainScreen from './src/screens/MainScreen/MainScreen';
 import LevelsScreen from './src/screens/LevelsScreen/LevelsScreen';
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import AddQuestionScreen from './src/screens/AddQuestionScreen/AddQuestionScreen';
+import AddAnswersScreen from './src/screens/AddAnswersScreen/AddAnswersScreen';
 import GitHubAuth from './src/components/InputGroup/GitHubAuth';
+import ThemeList from './src/components/ThemeList/ThemeList';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
 
 const Stack = createNativeStackNavigator();
 
-function App() {
+function App({ id }) {
   const insets = useSafeAreaInsets();
   const [mode, setMode] = useState(false);
 
@@ -61,6 +64,8 @@ function App() {
           <Stack.Screen name="Textbook" component={TextBookScreen} />
           <Stack.Screen name="Profile" component={ProfileScreen} />
           <Stack.Screen name="AddQuestion" component={AddQuestionScreen} />
+          <Stack.Screen name="ThemeList" component={ThemeList} />
+          <Stack.Screen name="AddAnswers" component={AddAnswersScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </themeContext.Provider>
@@ -71,7 +76,9 @@ function AppProvider() {
   return (
     <Provider store={store}>
       <SafeAreaProvider>
-        <App />
+        <IconComponentProvider IconComponent={MaterialCommunityIcons}>
+          <App />
+        </IconComponentProvider>
       </SafeAreaProvider>
     </Provider>
   );

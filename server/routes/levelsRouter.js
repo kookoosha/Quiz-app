@@ -6,7 +6,7 @@ const router = express.Router();
 router.route('/').get(async (req, res) => {
   try {
     const AllLevels = await Level.findAll();
-    console.log(AllLevels);
+    // console.log(AllLevels);
     return res.json(AllLevels);
   } catch (error) {
     return console.log(error);

@@ -7,19 +7,18 @@ import { Button, TextInput } from '@react-native-material/core';
 import { useNavigation } from '@react-navigation/native';
 // import { addQuestion } from '../../../redux/actions/questionAction';
 
-export default function AddQuestion() {
+export default function AddAnswers() {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const [inputs, setInputs] = useState({
-    title: '', img: '', code: '', level_id: '',
-  });
+  const [inputs, setInputs] = useState({});
   const [load, setLoad] = useState(false);
 
   const submitHandler = async () => {
-    if (inputs.title !== '' && inputs.img !== '' && inputs.code !== '' && inputs.level_id !== '') {
+    console.log(inputs);
+    if (inputs.title !== '') {
       setLoad(true);
       const response = await fetch(
-        'http://192.168.1.243:3001/addQuestion',
+        'http://192.168.1.243:3001/addAnswers',
         {
           method: 'POST',
           headers: {
@@ -27,15 +26,13 @@ export default function AddQuestion() {
           },
           body: JSON.stringify(inputs),
         },
-      ).then(() => navigation.navigate('AddAnswers'));
+      ).then(() => navigation.navigate('Profile'));
       dispatch(inputs);
-      if (response.ok) {
-        navigation.navigate('AddAnswers');
-      } else {
-        setLoad(false);
+      if (load === false) {
+        navigation.goBack();
         Alert.alert('Ошибка соединения');
-      }
-    } else { Alert.alert('Заполните все поля'); }
+      } else { Alert.alert('Заполните все поля'); }
+    }
   };
 
   return (
@@ -44,43 +41,46 @@ export default function AddQuestion() {
         backgroundColor: 'primary', flex: 1, justifyContent: 'center', alignItems: 'center',
       }}
       >
-        <Text>Заголовок</Text>
+        <Text>Правильный ответ</Text>
         <TextInput
           style={{ marginTop: 15, marginBottom: 15, width: 200 }}
           variant="standard"
-          onChangeText={(title) => {
-            setInputs((prev) => ({ ...prev, title }));
+          onChangeText={(data) => {
+            setInputs((prev) => ({ ...prev, rightAnswer: data }));
           }}
         />
-        <Text>URL-адрес изображения</Text>
+        <Text>Другой вариант ответа</Text>
         <TextInput
           style={{ marginBottom: 15, width: 200 }}
           variant="standard"
-          onChangeText={(img) => {
-            setInputs((prev) => ({ ...prev, img }));
+          onChangeText={(data) => {
+            setInputs((prev) => ({ ...prev, answer1: data })); // answer1: data
           }}
         />
-        <Text>Код</Text>
+        <Text>Ещё один ответ</Text>
         <TextInput
           style={{ marginBottom: 15, width: 200 }}
           variant="standard"
-          onChangeText={(code) => {
-            setInputs((prev) => ({ ...prev, code }));
+          onChangeText={(data) => {
+            setInputs((prev) => ({ ...prev, answer2: data })); // answer2: data
           }}
         />
-        <Text>ID уровня</Text>
+        <Text>Последний ответ</Text>
         <TextInput
           style={{ marginBottom: 15, width: 200 }}
           variant="standard"
-          onChangeText={(level_id) => {
-            setInputs((prev) => ({ ...prev, level_id }));
+          onChangeText={(data) => {
+            setInputs((prev) => ({ ...prev, answer3: data })); // answer3: data
           }}
         />
         <Button
           style={{ marginBottom: 15 }}
-          title="Далее"
+          title="Добавить"
           onPress={() => {
             submitHandler();
+            if (load) {
+              navigation.navigate('Profile');
+            }
           }}
         />
         <Button style={{ marginBottom: 5 }} title="Отмена" onPress={() => navigation.navigate('Profile')} />

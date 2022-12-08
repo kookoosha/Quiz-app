@@ -1,31 +1,30 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-const deviceWidth = Math.round(Dimensions.get('window').width);
-const offset = 40;
 const radius = 20;
 
 const styles = StyleSheet.create({
   container: {
-    // width: deviceWidth - 20,
-    // alignItems: 'center',
-    flexDirection: 'row',
     flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
   },
 
   cardContainer: {
     flex: 1,
-    marginTop: 25,
+    marginTop: 15,
+    marginBottom: 15,
     justifyContent: 'center',
     alignItems: 'center',
     width: 150,
-    backgroundColor: '#a29bfe',
-    height: 150,
+    backgroundColor: '#6200ef',
+    height: 130,
     borderRadius: radius,
 
     shadowColor: '#000',
     shadowOffset: {
-      width: 5,
-      height: 5,
+      width: 9,
+      height: 9,
     },
     shadowOpacity: 0.75,
     shadowRadius: 5,
@@ -33,9 +32,10 @@ const styles = StyleSheet.create({
   },
 
   titleStyle: {
-    fontSize: 20,
+    fontSize: 21,
     fontWeight: '400',
     textAlign: 'center',
+    color: 'white',
   },
 
 });

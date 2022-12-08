@@ -29,5 +29,7 @@ module.exports = {
     'no-console': 0,
     'react/jsx-no-constructed-context-values': 0,
     'import/no-unresolved': 0,
+    'no-nested-ternary': 0,
+    camelcase: 0,
   },
 };
