@@ -21,3 +21,4 @@ export const SET_SCORE = 'SET_SCORE';
 export const GET_SCORE = 'GET_SCORE';
 export const EMPTY_SCORE = 'EMPTY_SCORE';
 export const UPDATE_SCORE = 'UPDATE_SCORE';
+export const GET_SCORE2 = 'GET_SCORE2';

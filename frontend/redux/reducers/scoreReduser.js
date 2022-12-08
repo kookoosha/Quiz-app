@@ -1,5 +1,5 @@
 import {
-  EMPTY_SCORE, GET_SCORE, SET_ANSWERS, SET_SCORE, UPDATE_SCORE,
+  EMPTY_SCORE, GET_SCORE, GET_SCORE2, SET_ANSWERS, SET_SCORE, UPDATE_SCORE,
 } from '../types';
 
 export default function scoreReducer(state = [], action) {
@@ -23,6 +23,8 @@ export default function scoreReducer(state = [], action) {
     case EMPTY_SCORE:
       return [];
 
+    case GET_SCORE2:
+      return state;
     default:
       return state;
   }

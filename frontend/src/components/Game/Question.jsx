@@ -29,6 +29,10 @@ export default function Question() {
   const [counter, setCounter] = useState(1);
   console.log('scooooore', score);
 
+  let falsQuestion;
+  if (!score.length) {
+    falsQuestion = question.length - score;
+  }
   useEffect(() => {
     dispatch(getQuestions(itemId));
     return () => {
@@ -41,16 +45,12 @@ export default function Question() {
     setCurrentQuestion(question[0]);
   }, [question]);
 
-  console.log('', currQuestion);
+  console.log('question', question);
   // console.log('Answers on front', answers);
 
   useEffect(() => {
     dispatch(getAnswers(currQuestion?.id));
   }, [currQuestion]);
-
-  // useEffect(() => {
-  //   dispatch(getScore());
-  // }, []);
   const image = { uri: 'https://i.pinimg.com/originals/ce/fd/bb/cefdbb470cf74f3857f5eb8458c3a17e.jpg' };
 
   const chartConfig = {
@@ -69,24 +69,6 @@ export default function Question() {
       stroke: '#ffa726',
     },
   };
-  // const data = [
-
-  //   {
-  //     name: 'True',
-  //     population: 10,
-  //     color: '#19a600',
-  //     legendFontColor: '#7F7F7F',
-  //     legendFontSize: 15,
-  //   },
-  //   {
-  //     name: 'False',
-  //     population: 10,
-  //     color: 'red',
-  //     legendFontColor: '#7F7F7F',
-  //     legendFontSize: 15,
-  //   },
-
-  // ];
   const screenWidth = Dimensions.get('window').width;
   return (
 
@@ -142,7 +124,7 @@ export default function Question() {
           </View>
         </View>
       </View>
-      {activ && <Text>{`Количество правильных ответов:${JSON.stringify(score)}`}</Text>}
+      {/* {activ && <Text>{`Количество правильных ответов:${JSON.stringify(score)}`}</Text>} */}
 
       {/* Здесь закончилась отрисовка и логика вопроса */}
       <View fill center spacing={4}>
@@ -185,21 +167,28 @@ export default function Question() {
 
       {!currQuestion && !activ && (typeof score === 'number') && (
         <View>
-          <Text>{`Количество правильных ответов:${JSON.stringify(score)}`}</Text>
+          <Text style={{
+            fontSize: 20,
+            padding: 20,
+          }}
+          >
+            {`Количество правильных ответов: ${JSON.stringify(score)} / ${falsQuestion} `}
+
+          </Text>
           <PieChart
             data={
               [
 
                 {
-                  name: 'True',
+                  name: 'Верно',
                   population: score,
                   color: '#19a600',
                   legendFontColor: '#7F7F7F',
                   legendFontSize: 15,
                 },
                 {
-                  name: 'False',
-                  population: 1,
+                  name: 'Неверно',
+                  population: falsQuestion,
                   color: 'red',
                   legendFontColor: '#7F7F7F',
                   legendFontSize: 15,
@@ -213,7 +202,6 @@ export default function Question() {
             accessor="population"
             backgroundColor="transparent"
             padding="30"
-              // center={[50, 50]}
             absolute
           />
         </View>
