@@ -1,19 +1,20 @@
 /* eslint-disable react/no-unstable-nested-components */
-import React from 'react';
+import React, { useContext } from 'react';
 import { Avatar, Button, Icon } from '@react-native-material/core';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, Linking } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from '../../screens/MainScreen/mainScreen';
-import theme from '../../ThemeContext/Theme';
 import { setUser } from '../../../redux/actions/userActions';
+import themeContext from '../../ThemeContext/themeContext';
 // import { logoutUser } from '../../../redux/actions/userActions';
 
 function Profile({ navigate }) {
   const user = useSelector((store) => store.user);
   const navigation = useNavigation();
   const dispatch = useDispatch();
+  const theme = useContext(themeContext);
 
   const logoutHandler = () => {
     AsyncStorage.clear();
@@ -29,11 +30,11 @@ function Profile({ navigate }) {
         color="primary"
         size={130}
       />
-      <Text style={{ marginTop: 10, fontSize: 20 }}>
+      <Text style={{ marginTop: 10, fontSize: 20, color: theme.color }}>
 
         {user?.name}
       </Text>
-      <Text style={{ marginTop: 10, fontSize: 20 }}>
+      <Text style={{ marginTop: 10, fontSize: 20, color: theme.color }}>
 
         {user?.login}
       </Text>

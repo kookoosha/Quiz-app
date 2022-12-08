@@ -2,7 +2,7 @@ import {
   Stack, Button, ListItem, Icon,
 } from '@react-native-material/core';
 import { useRoute } from '@react-navigation/native';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   Dimensions,
   ImageBackground, Pressable, ScrollView, Text, View,
@@ -16,6 +16,7 @@ import { getAnswers, setAnswers } from '../../../redux/actions/answersAction';
 import {
   emptyScore, getScore, setScore, updateScore,
 } from '../../../redux/actions/scoreAction';
+import themeContext from '../../ThemeContext/themeContext';
 
 export default function Question() {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ export default function Question() {
   const { itemId, otherParam } = route.params;
   const [activ, setActiv] = useState(null);
   const [counter, setCounter] = useState(1);
+  const theme = useContext(themeContext);
   console.log('scooooore', score);
 
   let falsQuestion;
@@ -45,12 +47,10 @@ export default function Question() {
     setCurrentQuestion(question[0]);
   }, [question]);
 
-  console.log('question', question);
-  // console.log('Answers on front', answers);
-
   useEffect(() => {
     dispatch(getAnswers(currQuestion?.id));
   }, [currQuestion]);
+
   const image = { uri: 'https://i.pinimg.com/originals/ce/fd/bb/cefdbb470cf74f3857f5eb8458c3a17e.jpg' };
 
   const chartConfig = {
@@ -72,7 +72,7 @@ export default function Question() {
   const screenWidth = Dimensions.get('window').width;
   return (
 
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: theme.backgroundColor }}>
       {/* Здесь началась отрисовка и логика вопроса */}
       <View style={{
         flexDirection: 'row',
@@ -92,7 +92,7 @@ export default function Question() {
           />
         ))}
       </View>
-      <Text style={{ textAlign: 'center', fontSize: 18 }}>
+      <Text style={{ textAlign: 'center', fontSize: 18, color: theme.color }}>
         {
         !answers.length ? 'Твой результат:' : `Вопрос № ${counter}`
       }
@@ -104,12 +104,13 @@ export default function Question() {
           flexDirection: 'row',
           justifyContent: 'center',
           alignItems: 'center',
-
         }}
         >
           <View>
             <Text
-              style={{ alignItems: 'center', fontSize: 24, padding: 10 }}
+              style={{
+                alignItems: 'center', fontSize: 24, padding: 10, color: theme.color,
+              }}
             >
               {currQuestion?.title}
             </Text>
@@ -134,7 +135,6 @@ export default function Question() {
                   index,
                   value: el?.isCorrect,
                 }));
-                // setColor(el?.isCorrect);
                 setCurrentQuestion((prev) => question[question.indexOf(prev) + 1]);
                 setCounter((prev) => prev + 1);
               }}
@@ -193,24 +193,22 @@ export default function Question() {
             absolute
           />
         </View>
-      // </View>
       ) }
       {currQuestion && (
         <View style={{
           alignItems: 'flex-end',
         }}
         >
-          <Pressable
+          <Button
+            title="Пропустить вопрос"
             style={{
-              padding: 20, width: '50%', marginRight: 10,
+              padding: 5, width: '50%', marginRight: 20, marginBottom: 20,
             }}
             onPress={() => {
               setCurrentQuestion((prev) => question[question.indexOf(prev) + 1]);
               setCounter((prev) => prev + 1);
             }}
-          >
-            <Text>Пропустить вопрос</Text>
-          </Pressable>
+          />
         </View>
       )}
     </ScrollView>
