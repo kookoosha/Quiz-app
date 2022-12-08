@@ -264,7 +264,6 @@ module.exports = {
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 2,
-        level_id: 2,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
