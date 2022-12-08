@@ -2,75 +2,160 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Questions', [
+      // junior
+      // 1
       {
-        title: 'Джун: Для чего нужен Node.js?',
+        title: 'Что такое условный оператор?',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      // 2
       {
-        title: 'Джун: Что такое npm?',
+        title: 'Какая переменная записана неверно?',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      // 3
       {
-        title: 'Джун: Как создать приложение Node.js с нуля?',
+        title: 'Какие значения можно хранить в переменных?',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      // 4
       {
-        title: 'Мидл: Что такое стек вызовов и является ли он частью движка V8?',
+        title: 'Где можно использовать JavaScript?',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
-        level_id: 2,
+        level_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      // 5
       {
-        title: 'Мидл: Что такое цикл событий? Является ли он частью движка V8?',
+        title: 'В чем разница между confirm и prompt?',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
-        level_id: 2,
+        level_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      // 6
       {
-        title: ' Мидл: Помимо движка V8 и библиотеки libuv, какие ещё внешние зависимости есть у Node?',
+        title: 'Что будет записано в переменную test? var a = 5; var test = 5 != a ? "Yes" : "No";',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
-        level_id: 2,
+        level_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      // 7
       {
-        title: 'Сеньор: Почему в модулях переменные верхнего уровня не являются глобальными?',
+        title: 'В чем разница между confirm и prompt?',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
-        level_id: 3,
+        level_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      // 8
       {
-        title: 'Сеньор: В чём разница между module.exports и exports?',
+        title: 'Что будет выведено в консоль? var b = 10 if (b % 3 == 0) { var i = 10; } console.log(i);',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
-        level_id: 3,
+        level_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      // 9
       {
-        title: ' Сеньор: Можно ли запустить процесс Node без V8?',
+        title: 'Где верно указано имя переменной?',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
-        level_id: 3,
+        level_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 10
+      {
+        title: 'Какие циклы есть в языке JavaScript?',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 11
+      {
+        title: 'Какие функции выполняет Node JS?',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 12
+      {
+        title: 'Где верно указан запуск всплывающего окна?',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 13
+      {
+        title: 'Почему код ниже не будет работать? <script type="javascript/text"> console.log("Hi!") </script>',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 14
+      {
+        title: 'Где верно указан вывод данных?',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 15
+      {
+        title: 'Какое количество сообщений будет выведено в консоль? for(var i = 10; i < 35; i += 5) { console.log(i); }',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+
+      // middle
+
+      // 1
+      {
+        title: '',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 2
+      {
+        title: '',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
