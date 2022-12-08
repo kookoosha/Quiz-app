@@ -143,7 +143,7 @@ module.exports = {
 
       // 16
       {
-        title: '',
+        title: 'JavaScript имеет следующий тип комментариев.',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 2,
@@ -152,7 +152,7 @@ module.exports = {
       },
       // 17
       {
-        title: '',
+        title: 'Если строка не может быть преобразована в число, будет возвращено _____.',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 2,
@@ -161,7 +161,7 @@ module.exports = {
       },
       // 18
       {
-        title: '',
+        title: 'Во время сложения двух чисел предположим, что одно из чисел - NaN, какой будет результат?',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 2,
@@ -170,7 +170,7 @@ module.exports = {
       },
       // 19
       {
-        title: '',
+        title: 'Переменная может одновременно содержать _____ значений.',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 2,
@@ -179,7 +179,7 @@ module.exports = {
       },
       // 20
       {
-        title: '',
+        title: 'Целочисленная переменная объявляется с использованием следующего синтаксиса в JavaScript.',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 2,
@@ -188,7 +188,7 @@ module.exports = {
       },
       // 21
       {
-        title: '',
+        title: 'Мы можем объявить _____ за раз. Выберите наиболее подходящий вариант',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 2,
@@ -197,7 +197,7 @@ module.exports = {
       },
       // 22
       {
-        title: '',
+        title: 'Атрибут _____ используется для указания кодировки символов, используемой во внешнем файле скрипта.',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 2,
@@ -206,7 +206,7 @@ module.exports = {
       },
       // 23
       {
-        title: '',
+        title: 'Операторы JavaScript выполняются',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 2,
@@ -215,7 +215,7 @@ module.exports = {
       },
       // 24
       {
-        title: '',
+        title: 'Код JavaScript содержит',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 2,
@@ -224,7 +224,7 @@ module.exports = {
       },
       // 25
       {
-        title: '',
+        title: 'Код JavaScript можно вызвать с помощью',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 2,
@@ -233,7 +233,7 @@ module.exports = {
       },
       // 26
       {
-        title: '',
+        title: 'Оператор += может работать со следующими значениями данных.',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 2,
@@ -242,7 +242,7 @@ module.exports = {
       },
       // 27
       {
-        title: '',
+        title: 'Несколько операторов JS записываются внутри пары _____, чтобы сформировать блок операторов.',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 2,
@@ -251,7 +251,7 @@ module.exports = {
       },
       // 28
       {
-        title: '',
+        title: 'Инициализация переменной может быть выполнена путем записи оператора _____ между именем переменной и значением операнда.',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 2,
@@ -260,7 +260,7 @@ module.exports = {
       },
       // 29
       {
-        title: '',
+        title: 'Для каких из следующих целей предназначен NodeJS',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 2,
@@ -269,7 +269,7 @@ module.exports = {
       },
       // 30
       {
-        title: '',
+        title: 'Какое высказывание справедливо для классов при наследовании?',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 2,
