@@ -141,7 +141,7 @@ module.exports = {
 
       // middle
 
-      // 1
+      // 16
       {
         title: '',
         img: 'url',
@@ -150,12 +150,267 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
-      // 2
+      // 17
       {
         title: '',
         img: 'url',
         code: 'await queryInterface.bulkDelete()',
         level_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 18
+      {
+        title: '',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 19
+      {
+        title: '',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 20
+      {
+        title: '',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 21
+      {
+        title: '',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 22
+      {
+        title: '',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 23
+      {
+        title: '',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 24
+      {
+        title: '',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 25
+      {
+        title: '',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 26
+      {
+        title: '',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 27
+      {
+        title: '',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 28
+      {
+        title: '',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 29
+      {
+        title: '',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 2,
+        level_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 30
+      {
+        title: '',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // senior
+
+      // 32
+      {
+        title: 'На что ссылается this в методе объекта?',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 32
+      {
+        title: 'В каком порядке выполнятся обработчики одного и того же события, установленные с помощью метода addEventListener?',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 33
+      {
+        title: 'Какой дате соответствует инструкция new Date(2015, 0, -1)?',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 34
+      {
+        title: 'Выберите методы, предназначенные для удаления элементов из массива:',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 35
+      {
+        title: 'Как преобразовать дату в виде строки в объект Date?',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 36
+      {
+        title: 'Какое API предоставляет клиенту функциональность для обмена данными между клиентом и сервером? Данный API предоставляет простой способ получения данных по ссылке без перезагрузки страницы.',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 37
+      {
+        title: 'Какие есть ограничения по количеству элементов массива и их типу?',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 38
+      {
+        title: 'Как можно получить определенный символ в строке?',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 39
+      {
+        title: 'Этот метод разбивает строку на подстроки, используя заданный разделитель, и возвращает их в виде массива.',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 40
+      {
+        title: 'Что такое замыкание в JavaScript?',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 41
+      {
+        title: 'Какими способами можно создать новый пустой объект?',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 42
+      {
+        title: 'Какова точность хранения даты в объекте Date?',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 43
+      {
+        title: 'Что такое hoisting в JavaScript?',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 44
+      {
+        title: 'Какое значение возвращается, если DOM-элемент не найден при поиске по ID?',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      // 45
+      {
+        title: 'Выберите из списка существующие события мыши/клавиатуры:',
+        img: 'url',
+        code: 'await queryInterface.bulkDelete()',
+        level_id: 3,
         createdAt: new Date(),
         updatedAt: new Date(),
       },

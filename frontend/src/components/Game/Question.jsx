@@ -5,7 +5,7 @@ import { useRoute } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import {
   Dimensions,
-  ImageBackground, Pressable, Text, View,
+  ImageBackground, Pressable, ScrollView, Text, View,
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
@@ -72,7 +72,7 @@ export default function Question() {
   const screenWidth = Dimensions.get('window').width;
   return (
 
-    <View>
+    <ScrollView>
       {/* Здесь началась отрисовка и логика вопроса */}
       <View style={{
         flexDirection: 'row',
@@ -83,7 +83,6 @@ export default function Question() {
       }}
       >
         {Array.isArray(score) && score?.map((el) => (
-
           <Icon
             name="lightbulb"
             size={20}
@@ -93,15 +92,12 @@ export default function Question() {
           />
         ))}
       </View>
-
       <Text style={{ textAlign: 'center', fontSize: 18 }}>
         {
         !answers.length ? 'Твой результат:' : `Вопрос № ${counter}`
-
       }
 
       </Text>
-
       <View style={{ width: '100%' }}>
         <View style={{
           margin: 30,
@@ -111,16 +107,12 @@ export default function Question() {
 
         }}
         >
-
           <View>
-
             <Text
               style={{ alignItems: 'center', fontSize: 24, padding: 10 }}
             >
               {currQuestion?.title}
-
             </Text>
-
           </View>
         </View>
       </View>
@@ -128,7 +120,6 @@ export default function Question() {
 
       {/* Здесь закончилась отрисовка и логика вопроса */}
       <View fill center spacing={4}>
-
         {answers?.map((el) => (
           <View style={{
             flexDirection: 'row',
@@ -136,7 +127,6 @@ export default function Question() {
             alignItems: 'center',
           }}
           >
-
             <Pressable
               onPress={() => {
                 const index = question.findIndex((quest) => quest.id === currQuestion.id);
@@ -156,9 +146,7 @@ export default function Question() {
               <Text style={{ color: 'black', padding: 25, fontSize: 20 }}>
                 {el.title}
               </Text>
-
             </Pressable>
-
           </View>
         ))}
 
@@ -207,11 +195,9 @@ export default function Question() {
         </View>
       // </View>
       ) }
-
       {currQuestion && (
         <View style={{
           alignItems: 'flex-end',
-
         }}
         >
           <Pressable
@@ -227,8 +213,6 @@ export default function Question() {
           </Pressable>
         </View>
       )}
-
-    </View>
-
+    </ScrollView>
   );
 }
