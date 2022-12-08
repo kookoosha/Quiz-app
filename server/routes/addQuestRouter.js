@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.route('/').post(async (req, res) => {
   try {
+    console.log(req.body);
     const {
       title, img, code, level_id,
     } = req.body;

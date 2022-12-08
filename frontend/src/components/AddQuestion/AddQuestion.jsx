@@ -13,7 +13,7 @@ export default function AddQuestion() {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const [inputs, setInputs] = useState({
-    title: '', img: '', code: '', level_id: '',
+    title: '', img: 'img', code: 'constresponse', level_id: '',
   });
   const [load, setLoad] = useState(false);
 
@@ -21,7 +21,7 @@ export default function AddQuestion() {
     if (inputs.title !== '' && inputs.img !== '' && inputs.code !== '' && inputs.level_id !== '') {
       setLoad(true);
       const response = await fetch(
-        'http://192.168.1.243:3001/addQuestion',
+        'http://192.168.1.243:3001/addQuestion/',
         {
           method: 'POST',
           headers: {
@@ -41,9 +41,23 @@ export default function AddQuestion() {
   };
 
   return (
+
     <ScrollView>
+      <Text style={{
+        fontSize: 18,
+        marginTop: 20,
+        textAlign: 'center',
+        // textDecorationLine: 'underline',
+        padding: 20,
+        fontWeight: '500',
+        color: theme.color,
+      }}
+      >
+        Страница для добавления новых вопросов в базу данных JS Learner
+
+      </Text>
       <View style={{
-        backgroundColor: 'primary', flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 20,
+        backgroundColor: 'primary', flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 30,
       }}
       >
         <Text style={{ color: theme.color }}>Заголовок</Text>
@@ -56,22 +70,22 @@ export default function AddQuestion() {
             setInputs((prev) => ({ ...prev, title }));
           }}
         />
-        <Text style={{ color: theme.color }}>URL-адрес изображения</Text>
+        {/* <Text style={{ color: theme.color }}>URL-адрес изображения</Text>
         <TextInput
           style={{ marginBottom: 15, width: 200, color: theme.color }}
           variant="standard"
           onChangeText={(img) => {
             setInputs((prev) => ({ ...prev, img }));
           }}
-        />
-        <Text style={{ color: theme.color }}>Код</Text>
+        /> */}
+        {/* <Text style={{ color: theme.color }}>Код</Text>
         <TextInput
           style={{ marginBottom: 15, width: 200, color: theme.color }}
           variant="standard"
           onChangeText={(code) => {
             setInputs((prev) => ({ ...prev, code }));
           }}
-        />
+        /> */}
         <Text style={{ color: theme.color }}>ID уровня</Text>
         <TextInput
           style={{ marginBottom: 15, width: 200, color: theme.color }}

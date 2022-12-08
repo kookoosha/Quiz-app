@@ -31,6 +31,10 @@ export default function Question() {
   const theme = useContext(themeContext);
   console.log('scooooore', score);
 
+  let falsQuestion;
+  if (!score.length) {
+    falsQuestion = question.length - score;
+  }
   useEffect(() => {
     dispatch(getQuestions(itemId));
     return () => {
@@ -65,24 +69,6 @@ export default function Question() {
       stroke: '#ffa726',
     },
   };
-  const data = [
-
-    {
-      name: 'True',
-      population: 10,
-      color: '#19a600',
-      legendFontColor: '#7F7F7F',
-      legendFontSize: 15,
-    },
-    {
-      name: 'False',
-      population: 10,
-      color: 'red',
-      legendFontColor: '#7F7F7F',
-      legendFontSize: 15,
-    },
-
-  ];
   const screenWidth = Dimensions.get('window').width;
   return (
 
@@ -108,7 +94,7 @@ export default function Question() {
       </View>
       <Text style={{ textAlign: 'center', fontSize: 18, color: theme.color }}>
         {
-        !answers.length ? 'Твой результат:' : `Вопрос № ${counter}`
+        !answers.length ? ' ' : `Вопрос № ${counter}`
       }
 
       </Text>
@@ -131,7 +117,8 @@ export default function Question() {
           </View>
         </View>
       </View>
-      {activ && <Text>{`Количество правильных ответов:${JSON.stringify(score)}`}</Text>}
+      {/* {activ && <Text>{`Количество правильных ответов:${JSON.stringify(score)}`}</Text>} */}
+
       {/* Здесь закончилась отрисовка и логика вопроса */}
       <View fill center spacing={4}>
         {answers?.map((el) => (
@@ -164,18 +151,46 @@ export default function Question() {
         ))}
 
       </View>
-      {!currQuestion && !activ && (
+      {!currQuestion && !activ && <Pressable onPress={dispatch(getScore())} /> }
+
+      {!currQuestion && !activ && (typeof score === 'number') && (
         <View>
-          <Pressable onPress={dispatch(getScore())} />
-          <Text>{`Количество правильных ответов:${JSON.stringify(score)}`}</Text>
+          <Text style={{
+            fontSize: 20,
+            textAlign: 'center',
+            color: theme.color,
+          }}
+          >
+            {`Количество правильных ответов: ${JSON.stringify(score)} / ${falsQuestion} `}
+
+          </Text>
           <PieChart
-            data={data}
+            data={
+              [
+
+                {
+                  name: 'Верно',
+                  population: score,
+                  color: '#19a600',
+                  legendFontColor: '#7F7F7F',
+                  legendFontSize: 15,
+                },
+                {
+                  name: 'Неверно',
+                  population: falsQuestion,
+                  color: 'red',
+                  legendFontColor: '#7F7F7F',
+                  legendFontSize: 15,
+                },
+
+              ]
+            }
             width={screenWidth}
             height={200}
             chartConfig={chartConfig}
             accessor="population"
             backgroundColor="transparent"
-            padding="30"
+            paddingLeft="30"
             absolute
           />
         </View>
@@ -185,16 +200,21 @@ export default function Question() {
           alignItems: 'flex-end',
         }}
         >
-          <Button
-            title="Пропустить вопрос"
-            style={{
-              padding: 5, width: '50%', marginRight: 20, marginBottom: 20,
-            }}
+          <Pressable
+            style={{ marginRight: 20 }}
             onPress={() => {
               setCurrentQuestion((prev) => question[question.indexOf(prev) + 1]);
               setCounter((prev) => prev + 1);
             }}
-          />
+          >
+            <Text style={{
+              marginTop: 20, fontSize: 14, textDecorationLine: 'underline', color: theme.color,
+            }}
+            >
+              ПРОПУСТИТЬ ВОПРОС
+            </Text>
+
+          </Pressable>
         </View>
       )}
     </ScrollView>

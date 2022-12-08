@@ -278,7 +278,7 @@ module.exports = {
       },
       // senior
 
-      // 31
+      // 32
       {
         title: 'На что ссылается this в методе объекта?',
         img: 'url',
