@@ -41,16 +41,10 @@ export default function Question() {
     setCurrentQuestion(question[0]);
   }, [question]);
 
-  // console.log('currQ', currQuestion);
-  // console.log('Answers on front', answers);
-
   useEffect(() => {
     dispatch(getAnswers(currQuestion?.id));
   }, [currQuestion]);
 
-  // useEffect(() => {
-  //   dispatch(getScore());
-  // }, []);
   const image = { uri: 'https://i.pinimg.com/originals/ce/fd/bb/cefdbb470cf74f3857f5eb8458c3a17e.jpg' };
 
   const chartConfig = {
@@ -122,7 +116,6 @@ export default function Question() {
           flexDirection: 'row',
           justifyContent: 'center',
           alignItems: 'center',
-
         }}
         >
           <View>
@@ -151,7 +144,6 @@ export default function Question() {
                   index,
                   value: el?.isCorrect,
                 }));
-                // setColor(el?.isCorrect);
                 setCurrentQuestion((prev) => question[question.indexOf(prev) + 1]);
                 setCounter((prev) => prev + 1);
               }}
@@ -180,28 +172,25 @@ export default function Question() {
             accessor="population"
             backgroundColor="transparent"
             padding="30"
-              // center={[50, 50]}
             absolute
           />
         </View>
-      // </View>
       ) }
       {currQuestion && (
         <View style={{
           alignItems: 'flex-end',
         }}
         >
-          <Pressable
+          <Button
+            title="Пропустить вопрос"
             style={{
-              padding: 20, width: '50%', marginRight: 10,
+              padding: 5, width: '50%', marginRight: 20, marginBottom: 20,
             }}
             onPress={() => {
               setCurrentQuestion((prev) => question[question.indexOf(prev) + 1]);
               setCounter((prev) => prev + 1);
             }}
-          >
-            <Text>Пропустить вопрос</Text>
-          </Pressable>
+          />
         </View>
       )}
     </ScrollView>
