@@ -94,7 +94,7 @@ export default function Question() {
       </View>
       <Text style={{ textAlign: 'center', fontSize: 18, color: theme.color }}>
         {
-        !answers.length ? 'Твой результат:' : `Вопрос № ${counter}`
+        !answers.length ? ' ' : `Вопрос № ${counter}`
       }
 
       </Text>
@@ -157,7 +157,8 @@ export default function Question() {
         <View>
           <Text style={{
             fontSize: 20,
-            padding: 20,
+            textAlign: 'center',
+            color: theme.color,
           }}
           >
             {`Количество правильных ответов: ${JSON.stringify(score)} / ${falsQuestion} `}
@@ -189,7 +190,7 @@ export default function Question() {
             chartConfig={chartConfig}
             accessor="population"
             backgroundColor="transparent"
-            padding="30"
+            paddingLeft="30"
             absolute
           />
         </View>
@@ -199,16 +200,21 @@ export default function Question() {
           alignItems: 'flex-end',
         }}
         >
-          <Button
-            title="Пропустить вопрос"
-            style={{
-              padding: 5, width: '50%', marginRight: 20, marginBottom: 20,
-            }}
+          <Pressable
+            style={{ marginRight: 20 }}
             onPress={() => {
               setCurrentQuestion((prev) => question[question.indexOf(prev) + 1]);
               setCounter((prev) => prev + 1);
             }}
-          />
+          >
+            <Text style={{
+              marginTop: 20, fontSize: 14, textDecorationLine: 'underline', color: theme.color,
+            }}
+            >
+              ПРОПУСТИТЬ ВОПРОС
+            </Text>
+
+          </Pressable>
         </View>
       )}
     </ScrollView>
