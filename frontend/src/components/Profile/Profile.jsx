@@ -6,7 +6,6 @@ import { View, Text, Linking } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from '../../screens/MainScreen/mainScreen';
-import theme from '../../ThemeContext/Theme';
 import { setUser } from '../../../redux/actions/userActions';
 import themeContext from '../../ThemeContext/themeContext';
 // import { logoutUser } from '../../../redux/actions/userActions';

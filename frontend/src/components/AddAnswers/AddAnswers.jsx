@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Alert, ScrollView, Text, View,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { Button, TextInput } from '@react-native-material/core';
 import { useNavigation } from '@react-navigation/native';
+import themeContext from '../../ThemeContext/themeContext';
 // import { addQuestion } from '../../../redux/actions/questionAction';
 
 export default function AddAnswers() {
+  const theme = useContext(themeContext);
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const [inputs, setInputs] = useState({});
@@ -41,7 +43,7 @@ export default function AddAnswers() {
         backgroundColor: 'primary', flex: 1, justifyContent: 'center', alignItems: 'center',
       }}
       >
-        <Text>Правильный ответ</Text>
+        <Text style={{ color: theme.color }}>Правильный ответ</Text>
         <TextInput
           style={{ marginTop: 15, marginBottom: 15, width: 200 }}
           variant="standard"
@@ -49,25 +51,25 @@ export default function AddAnswers() {
             setInputs((prev) => ({ ...prev, rightAnswer: data }));
           }}
         />
-        <Text>Другой вариант ответа</Text>
+        <Text style={{ color: theme.color }}>Другой вариант ответа</Text>
         <TextInput
-          style={{ marginBottom: 15, width: 200 }}
+          style={{ marginBottom: 15, width: 200, color: theme.color }}
           variant="standard"
           onChangeText={(data) => {
             setInputs((prev) => ({ ...prev, answer1: data })); // answer1: data
           }}
         />
-        <Text>Ещё один ответ</Text>
+        <Text style={{ color: theme.color }}>Ещё один ответ</Text>
         <TextInput
-          style={{ marginBottom: 15, width: 200 }}
+          style={{ marginBottom: 15, width: 200, color: theme.color }}
           variant="standard"
           onChangeText={(data) => {
             setInputs((prev) => ({ ...prev, answer2: data })); // answer2: data
           }}
         />
-        <Text>Последний ответ</Text>
+        <Text style={{ color: theme.color }}>Последний ответ</Text>
         <TextInput
-          style={{ marginBottom: 15, width: 200 }}
+          style={{ marginBottom: 15, width: 200, color: theme.color }}
           variant="standard"
           onChangeText={(data) => {
             setInputs((prev) => ({ ...prev, answer3: data })); // answer3: data

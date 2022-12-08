@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Alert, ScrollView, Text, View,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { Button, TextInput } from '@react-native-material/core';
 import { useNavigation } from '@react-navigation/native';
+import themeContext from '../../ThemeContext/themeContext';
 // import { addQuestion } from '../../../redux/actions/questionAction';
 
 export default function AddQuestion() {
+  const theme = useContext(themeContext);
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const [inputs, setInputs] = useState({
@@ -41,36 +43,38 @@ export default function AddQuestion() {
   return (
     <ScrollView>
       <View style={{
-        backgroundColor: 'primary', flex: 1, justifyContent: 'center', alignItems: 'center',
+        backgroundColor: 'primary', flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 20,
       }}
       >
-        <Text>Заголовок</Text>
+        <Text style={{ color: theme.color }}>Заголовок</Text>
         <TextInput
-          style={{ marginTop: 15, marginBottom: 15, width: 200 }}
+          style={{
+            marginTop: 15, marginBottom: 15, width: 200, color: theme.color,
+          }}
           variant="standard"
           onChangeText={(title) => {
             setInputs((prev) => ({ ...prev, title }));
           }}
         />
-        <Text>URL-адрес изображения</Text>
+        <Text style={{ color: theme.color }}>URL-адрес изображения</Text>
         <TextInput
-          style={{ marginBottom: 15, width: 200 }}
+          style={{ marginBottom: 15, width: 200, color: theme.color }}
           variant="standard"
           onChangeText={(img) => {
             setInputs((prev) => ({ ...prev, img }));
           }}
         />
-        <Text>Код</Text>
+        <Text style={{ color: theme.color }}>Код</Text>
         <TextInput
-          style={{ marginBottom: 15, width: 200 }}
+          style={{ marginBottom: 15, width: 200, color: theme.color }}
           variant="standard"
           onChangeText={(code) => {
             setInputs((prev) => ({ ...prev, code }));
           }}
         />
-        <Text>ID уровня</Text>
+        <Text style={{ color: theme.color }}>ID уровня</Text>
         <TextInput
-          style={{ marginBottom: 15, width: 200 }}
+          style={{ marginBottom: 15, width: 200, color: theme.color }}
           variant="standard"
           onChangeText={(level_id) => {
             setInputs((prev) => ({ ...prev, level_id }));
