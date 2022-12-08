@@ -2,7 +2,7 @@
 import React from 'react';
 import { Avatar, Button, Icon } from '@react-native-material/core';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text } from 'react-native';
+import { View, Text, Linking } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from '../../screens/MainScreen/mainScreen';
@@ -29,8 +29,15 @@ function Profile({ navigate }) {
         color="primary"
         size={130}
       />
-      <Text style={{ marginTop: 10, fontSize: 20, textDecorationLine: 'underline' }}>{user?.name}</Text>
-      <Text style={{ marginTop: 10, fontSize: 20, textDecorationLine: 'underline' }}>Ваши очки:</Text>
+      <Text style={{ marginTop: 10, fontSize: 20 }}>
+
+        {user?.name}
+      </Text>
+      <Text style={{ marginTop: 10, fontSize: 20 }}>
+
+        {user?.login}
+      </Text>
+      <Button style={{ marginTop: 30 }} title="Профиль GitHub" onPress={() => Linking.openURL(user?.html_url)} />
       <Button style={{ marginTop: 30 }} title="Добавить вопрос" onPress={() => navigation.navigate('AddQuestion')} />
       <Button style={{ marginTop: 30 }} title="Выход" onPress={logoutHandler} />
     </View>
