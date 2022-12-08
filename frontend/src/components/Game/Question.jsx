@@ -2,7 +2,7 @@ import {
   Stack, Button, ListItem, Icon,
 } from '@react-native-material/core';
 import { useRoute } from '@react-navigation/native';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   Dimensions,
   ImageBackground, Pressable, ScrollView, Text, View,
@@ -16,6 +16,7 @@ import { getAnswers, setAnswers } from '../../../redux/actions/answersAction';
 import {
   emptyScore, getScore, setScore, updateScore,
 } from '../../../redux/actions/scoreAction';
+import themeContext from '../../ThemeContext/themeContext';
 
 export default function Question() {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ export default function Question() {
   const { itemId, otherParam } = route.params;
   const [activ, setActiv] = useState(null);
   const [counter, setCounter] = useState(1);
+  const theme = useContext(themeContext);
   console.log('scooooore', score);
 
   useEffect(() => {
@@ -90,7 +92,7 @@ export default function Question() {
   const screenWidth = Dimensions.get('window').width;
   return (
 
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: theme.backgroundColor }}>
       {/* Здесь началась отрисовка и логика вопроса */}
       <View style={{
         flexDirection: 'row',
@@ -110,7 +112,7 @@ export default function Question() {
           />
         ))}
       </View>
-      <Text style={{ textAlign: 'center', fontSize: 18 }}>
+      <Text style={{ textAlign: 'center', fontSize: 18, color: theme.color }}>
         {
         !answers.length ? 'Твой результат:' : `Вопрос № ${counter}`
       }
@@ -127,7 +129,9 @@ export default function Question() {
         >
           <View>
             <Text
-              style={{ alignItems: 'center', fontSize: 24, padding: 10 }}
+              style={{
+                alignItems: 'center', fontSize: 24, padding: 10, color: theme.color,
+              }}
             >
               {currQuestion?.title}
             </Text>
