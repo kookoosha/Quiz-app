@@ -4,13 +4,14 @@ import {
 import { useRoute } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import {
+  Dimensions,
   ImageBackground, Pressable, Text, View,
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
+import { PieChart } from 'react-native-chart-kit';
 import { getLevels } from '../../../redux/actions/levelsActions';
 import { emptyQuestion, getQuestions } from '../../../redux/actions/questionAction';
-import OneQuestion from './OneQuestion';
 import { getAnswers, setAnswers } from '../../../redux/actions/answersAction';
 import {
   emptyScore, getScore, setScore, updateScore,
@@ -25,7 +26,6 @@ export default function Question() {
   const route = useRoute();
   const { itemId, otherParam } = route.params;
   const [activ, setActiv] = useState(null);
-  // const [color, setColor] = useState(false);
   const [counter, setCounter] = useState(1);
   console.log('scooooore', score);
 
@@ -48,8 +48,46 @@ export default function Question() {
     dispatch(getAnswers(currQuestion?.id));
   }, [currQuestion]);
 
+  // useEffect(() => {
+  //   dispatch(getScore());
+  // }, []);
   const image = { uri: 'https://i.pinimg.com/originals/ce/fd/bb/cefdbb470cf74f3857f5eb8458c3a17e.jpg' };
 
+  const chartConfig = {
+    backgroundColor: '#e26a00',
+    backgroundGradientFrom: '#fb8c00',
+    backgroundGradientTo: '#ffa726',
+    decimalPlaces: 2, // optional, defaults to 2dp
+    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+    labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+    style: {
+      borderRadius: 16,
+    },
+    propsForDots: {
+      r: '6',
+      strokeWidth: '2',
+      stroke: '#ffa726',
+    },
+  };
+  const data = [
+
+    {
+      name: 'True',
+      population: 10,
+      color: '#19a600',
+      legendFontColor: '#7F7F7F',
+      legendFontSize: 15,
+    },
+    {
+      name: 'False',
+      population: 10,
+      color: 'red',
+      legendFontColor: '#7F7F7F',
+      legendFontSize: 15,
+    },
+
+  ];
+  const screenWidth = Dimensions.get('window').width;
   return (
 
     <View>
@@ -64,11 +102,6 @@ export default function Question() {
       >
         {Array.isArray(score) && score?.map((el) => (
 
-          // <View key={el.id}>
-          //   {el === null && score.map((el) => <Icon name="lightbulb" size={20} color="gray" />)}
-          //   {el === true && <Icon name="lightbulb" size={20} color="#19a600" />}
-          //   {el === false && <Icon name="lightbulb" size={20} color="red" />}
-          // </View>
           <Icon
             name="lightbulb"
             size={20}
@@ -81,7 +114,7 @@ export default function Question() {
 
       <Text style={{ textAlign: 'center', fontSize: 18 }}>
         {
-        !answers.length ? 'End' : `Вопрос № ${counter}`
+        !answers.length ? 'Твой результат:' : `Вопрос № ${counter}`
 
       }
 
@@ -113,36 +146,6 @@ export default function Question() {
 
       {/* Здесь закончилась отрисовка и логика вопроса */}
       <View fill center spacing={4}>
-        {/* {answers?.map((el) => (
-          <ImageBackground style={{ borderRadius: 30, margin: 10 }} source={image} resizeMode="cover">
-            <View
-              key={el.id}
-              style={{
-
-                borderColor: 'black',
-                width: '80%',
-                marginBottom: 3,
-                fontSize: 20,
-              }}
-            >
-              <Button
-                onPress={() => {
-                  dispatch(setScore(el?.isCorrect));
-                  setColor(el?.isCorrect);
-                  setCurrentQuestion((prev) => question[question.indexOf(prev) + 1]);
-                  setCounter((prev) => prev + 1);
-                }}
-                variant="outlined"
-                title={`${el.title}`}
-                color="black"
-                tintColor="black"
-                pressableContainerStyle="red"
-                style={{ padding: 20, borderRadius: 50 }}
-              />
-            </View>
-          </ImageBackground>
-
-        ))} */}
 
         {answers?.map((el) => (
           <View style={{
@@ -179,7 +182,25 @@ export default function Question() {
 
       </View>
 
-      {!currQuestion && !activ && <Button style={{ padding: 20 }} onPress={() => { dispatch(getScore()); setActiv(true); }} title="Закончить тестирование" color="#d4ac2d" />}
+      {!currQuestion && !activ && (
+        <View>
+          <Pressable onPress={dispatch(getScore())} />
+          <Text>{`Количество правильных ответов:${JSON.stringify(score)}`}</Text>
+          <PieChart
+            data={data}
+            width={screenWidth}
+            height={200}
+            chartConfig={chartConfig}
+            accessor="population"
+            backgroundColor="transparent"
+            padding="30"
+              // center={[50, 50]}
+            absolute
+          />
+        </View>
+      // </View>
+      ) }
+
       {currQuestion && (
         <View style={{
           alignItems: 'flex-end',
