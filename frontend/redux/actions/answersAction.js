@@ -18,7 +18,7 @@ export const getAnswers = (id) => (dispatch) => {
   }
 };
 
-export const addAnsw = (data) => (dispatch) => {
+export const addAnsw = () => (dispatch) => {
   axios.post('http://192.168.2.246:3001/addAnswers')
     .then((res) => {
       dispatch(addAnswer(res.data));
