@@ -5,7 +5,7 @@ import { useRoute } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import {
   Dimensions,
-  ImageBackground, Pressable, Text, View,
+  ImageBackground, Pressable, ScrollView, Text, View,
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
@@ -90,7 +90,7 @@ export default function Question() {
   const screenWidth = Dimensions.get('window').width;
   return (
 
-    <View>
+    <ScrollView>
       {/* Здесь началась отрисовка и логика вопроса */}
       <View style={{
         flexDirection: 'row',
@@ -221,7 +221,7 @@ export default function Question() {
         </View>
       )}
 
-    </View>
+    </ScrollView>
 
   );
 }
