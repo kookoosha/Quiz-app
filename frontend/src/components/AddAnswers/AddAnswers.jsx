@@ -26,7 +26,7 @@ export default function AddAnswers() {
           },
           body: JSON.stringify(inputs),
         },
-      );
+      ).then(() => navigation.navigate('Profile'));
       dispatch(inputs);
       if (load === false) {
         navigation.goBack();
