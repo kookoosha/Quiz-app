@@ -41,7 +41,7 @@ export default function Question() {
     setCurrentQuestion(question[0]);
   }, [question]);
 
-  // console.log('currQ', currQuestion);
+  console.log('', currQuestion);
   // console.log('Answers on front', answers);
 
   useEffect(() => {
@@ -69,24 +69,24 @@ export default function Question() {
       stroke: '#ffa726',
     },
   };
-  const data = [
+  // const data = [
 
-    {
-      name: 'True',
-      population: 10,
-      color: '#19a600',
-      legendFontColor: '#7F7F7F',
-      legendFontSize: 15,
-    },
-    {
-      name: 'False',
-      population: 10,
-      color: 'red',
-      legendFontColor: '#7F7F7F',
-      legendFontSize: 15,
-    },
+  //   {
+  //     name: 'True',
+  //     population: 10,
+  //     color: '#19a600',
+  //     legendFontColor: '#7F7F7F',
+  //     legendFontSize: 15,
+  //   },
+  //   {
+  //     name: 'False',
+  //     population: 10,
+  //     color: 'red',
+  //     legendFontColor: '#7F7F7F',
+  //     legendFontSize: 15,
+  //   },
 
-  ];
+  // ];
   const screenWidth = Dimensions.get('window').width;
   return (
 
@@ -181,13 +181,32 @@ export default function Question() {
         ))}
 
       </View>
+      {!currQuestion && !activ && <Pressable onPress={dispatch(getScore())} /> }
 
-      {!currQuestion && !activ && (
+      {!currQuestion && !activ && (typeof score === 'number') && (
         <View>
-          <Pressable onPress={dispatch(getScore())} />
           <Text>{`Количество правильных ответов:${JSON.stringify(score)}`}</Text>
           <PieChart
-            data={data}
+            data={
+              [
+
+                {
+                  name: 'True',
+                  population: score,
+                  color: '#19a600',
+                  legendFontColor: '#7F7F7F',
+                  legendFontSize: 15,
+                },
+                {
+                  name: 'False',
+                  population: 1,
+                  color: 'red',
+                  legendFontColor: '#7F7F7F',
+                  legendFontSize: 15,
+                },
+
+              ]
+            }
             width={screenWidth}
             height={200}
             chartConfig={chartConfig}
